@@ -73,6 +73,7 @@ body {
     padding: 1rem 2rem;
     background-color: #502c56;
     border-radius: 30px;
+    border: none;
     margin-top: 10px;
     opacity: 100%;
     font-family: "Segoe UI Semibold";
@@ -92,8 +93,8 @@ body {
     padding: 8px;
     width: 40%;
     background-color: #DCC2E0;
-    border-color: #DCC2E0;
-    border-radius: 10%;
+    border:none;
+    border-radius: 10px;
 }
 .form label{
     padding: 8px;
@@ -104,4 +105,5 @@ body {
     padding: 20px;
     font-weight: bold;
     float: right;
+    color: #502c56;
 }
