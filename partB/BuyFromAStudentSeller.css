@@ -7,25 +7,27 @@ body {
     background-color: #ece4e9;
     color: #502c56;
     line-height: 1.6em;
+    grid-template-areas:
+    'header'
+    'content'
+    'footer';
+    gap: 10px;
 }
-
-.createAccount{
-    font-family: "Segoe UI Light";
-    margin-right: 10%;
-    color: #502c56;
+.content {
+    position: relative;
+    font-family: "Segoe UI Semibold";
+    grid-area: content;
+    text-align: right;
 }
-
 #logo{
-    float:left ;
     width: 10%;
 }
 
-.header {
+#header {
     position: relative;
     font-family: "Segoe UI Semibold";
-    margin-right: 50px;
-    margin-top: 50px;
-    text-align: right;
+    text-align: left;
+    grid-area: header;
 }
 
 .btn {
@@ -47,4 +49,23 @@ body {
     color: white;
 }
 
+.btn:active {
+    /*transform: rotateZ(360deg);*/
+    background-color: darkgray ;
+    color: #502c56 ;
+}
 
+
+#footer{
+    text-align: center;
+    grid-area: footer;
+    color: #502c56;
+    font-family: "Segoe UI Light";
+    margin: 10px;
+}
+.error {
+    font-weight: bold;
+    color: #502c56;
+    padding: 3px;
+    margin: 3px;
+}

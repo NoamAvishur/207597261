@@ -7,39 +7,43 @@
   <link rel="stylesheet" href="BuyFromAStudentHome.css">
 </head>
 <body>
-  <div class="container">
-      <img id="logo" src="logo.png"></img>
-      <br>
       <header id="header">
-            <h1>Welcome to Buy From A Student</h1>
+            <img id="logo" src="logo.png"></img>
       </header>
       <div class="content">
-          <h2>?מה תרצה לעשות כאן היום</h2>
-      </div>
-      <br>
-      <div class="left">
-          <h3>באתי לקנות</h3>
-          <a href="#" class="btn">עבור לאתר</a>
-      </div>
-      <div class="center">
-          <img src="line.png">
-      </div>
-      <div class="right">
-          <h3>באתי למכור</h3>
-          <form action="" method="get">
-              <div class="form">
-                  <input type="email" name="email">
-                  <label>:אימייל </label>
-              </div>
-              <div class="form">
-                  <input type="text" name="password">
-                  <label>:סיסמה</label>
-              </div>
-              <input type="submit" class="btn" value="צור משתמש" name="">
-          </form>
+          <h1>Welcome to Buy From A Student</h1>
           <br>
-          <a href="#" class="link">צור משתמש חדש</a>
+          <h2>?מה תרצה לעשות כאן היום</h2>
+            <br>
+          <div class="left">
+            <h3>באתי לקנות</h3>
+            <a href="#" class="btn">עבור לאתר</a>
+          </div>
+          <div class="center">
+            <img src="line.png">
+          </div>
+          <div class="right">
+            <h3>באתי למכור</h3>
+            <form  class="my-form" action="" method="get" id="block">
+                <div class="msg"></div>
+                <div class="form">
+                    <input type="email" name="email" id="email">
+                    <label>:אימייל </label>
+                </div>
+                <div class="form">
+                    <input type="password" name="password" id="password">
+                    <label>:סיסמה</label>
+                </div>
+                    <input type="submit" class="btn" value="התחבר" name="">
+            </form>
+            <br>
+            <a href="BuyFromAStudentCreateAccount.html" class="link">צור משתמש חדש</a>
+          </div>
+          <ul class="users"></ul>
       </div>
-  </div>
+      <footer id="footer">
+          <h4>כל הזכויות שמורות לנעם אבישור 2022</h4>
+      </footer>
+      <script src="BuyFromAStudentHome.js"></script>
 </body>
 </html>

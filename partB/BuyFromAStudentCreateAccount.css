@@ -7,13 +7,20 @@ body {
     background-color: #ece4e9;
     color: #502c56;
     line-height: 1.6em;
+    display: grid;
+    grid-template-areas:
+    'header'
+    'content'
+    'footer';
+    gap: 10px;
 }
 
-
+#header{
+    grid-area: header;
+}
 
 .createAccount{
     font-family: "Segoe UI Light";
-    margin-right: 10%;
     color: #502c56;
 }
 
@@ -22,15 +29,15 @@ body {
     width: 10%;
 }
 
-.header {
+.content {
     position: relative;
     font-family: "Segoe UI Semibold";
     margin-right: 50px;
-    margin-top: 50px;
     text-align: right;
+    grid-area: content;
 }
 
-.btn {
+.btn{
     display: inline-block;
     color: #ece4e9;
     text-decoration: none;
@@ -38,9 +45,8 @@ body {
     background-color: #502c56;
     border-radius: 30px;
     border: none;
-    text-align: left;
-    margin-left: 10%;
     font-family: "Segoe UI Semibold";
+    margin-right: 70%;
 }
 
 .btn:hover {
@@ -48,7 +54,11 @@ body {
     background-color: #CDA9D3 ;
     color: white;
 }
-
+.btn:active {
+    /*transform: rotateZ(360deg);*/
+    background-color: darkgray ;
+    color: #502c56 ;
+}
 .form{
     display: flex;
     justify-content: right;
@@ -63,4 +73,17 @@ body {
 .form label{
     padding: 8px;
     font-family: "Segoe UI Light";
+}
+#footer{
+    grid-area: footer;
+    color: #502c56;
+    font-family: "Segoe UI Light";
+    margin: 20px;
+    text-align: center;
+}
+.error {
+    font-weight: bold;
+    color: #502c56;
+    padding: 3px;
+    margin: 3px;
 }
