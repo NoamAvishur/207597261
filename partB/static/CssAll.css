@@ -14,7 +14,28 @@ body {
     'footer';
     gap: 10px;
 }
-
+li{
+    margin: 5%;
+    text-align: center;
+    list-style-type: none;
+    display: inline;
+}
+nav{
+    text-align: center;
+    margin: 5%;
+    font-family: "Segoe UI Semibold";
+}
+a{
+    text-decoration: none;
+    font-family: "Segoe UI Semibold";
+    color: #502c56;
+}
+a:hover{
+    color: #CDA9D3;
+}
+a:active{
+    color: darkgrey;
+}
 #header{
     grid-area: header;
 }
@@ -25,6 +46,7 @@ body {
 }
 
 #logo{
+    display: block;
     float:left ;
     width: 10%;
 }
@@ -32,9 +54,8 @@ body {
 .content {
     position: relative;
     font-family: "Segoe UI Semibold";
-    margin-right: 50px;
-    text-align: right;
     grid-area: content;
+    text-align: center;
 }
 
 .btn{
@@ -46,7 +67,7 @@ body {
     border-radius: 30px;
     border: none;
     font-family: "Segoe UI Semibold";
-    margin-right: 70%;
+    margin: 10px;
 }
 
 .btn:hover {
@@ -60,25 +81,34 @@ body {
     color: #502c56 ;
 }
 .form{
-    display: flex;
-    justify-content: right;
-    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    display: inline;
 }
 .form input{
+    margin: 10px;
     padding: 8px;
     background-color: #DCC2E0;
     border:none;
     border-radius: 10px;
+    text-align: right;
+}
+.form input[type='text']{
+    text-align: right;
+}
+.form input[type='text']:focus{
+text-align:left;
 }
 .form label{
     padding: 8px;
     font-family: "Segoe UI Light";
 }
+
 #footer{
     grid-area: footer;
     color: #502c56;
     font-family: "Segoe UI Light";
-    margin: 20px;
+    margin-top: 10%;
     text-align: center;
 }
 .error {
@@ -86,4 +116,55 @@ body {
     color: #502c56;
     padding: 3px;
     margin: 3px;
+}
+#headline{
+    text-align: center;
+}
+.search{
+    margin-right: 30%;
+}
+#searchLine{
+    display: inline;
+    margin-top: 5%;
+    width: 45%;
+    border-radius: 10px;
+    background-color: #DCC2E0;
+    font-family: "Segoe UI Light";
+    color: #502c56;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10%;
+}
+#searchBtn{
+    display: inline;
+    margin-left: 35%;
+}
+p{
+    width: 45%;
+    text-align: center;
+    margin-left: 27%;
+}
+
+.left{
+    font-family: "Segoe UI Light";
+    float: left;
+    width: 40%;
+    padding: 15px;
+    box-sizing: border-box;
+    color: #502c56;
+}
+.center {
+    font-family: "Segoe UI Light";
+    float: left;
+    width: 10%;
+    box-sizing: border-box;
+    color: #502c56;
+}
+.right{
+    font-family: "Segoe UI Light";
+    float: left;
+    width: 45%;
+    padding: 15px;
+    box-sizing: border-box;
+    color: #502c56;
 }

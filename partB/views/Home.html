@@ -8,7 +8,7 @@
 </head>
 <body>
     <header id="header">
-        <img id="logo" src="../static/logo.png"></img>
+        <a href="../views/LandingPage.html"><img id="logo" src="../static/logo.png"></a>
         <br>
             <nav>
                 <ul>
@@ -26,11 +26,17 @@
     </header>
     <br>
     <div class="content">
-        <h1>אודותינו</h1>
+        <h1 id="headline">חיפוש מוצר או שירות</h1>
         <br>
-      <p>
-        אנחנו, קבוצת סטודנטים בבן גוריון חרטנו על דגלנו
-      </p>
+        <div class="search">
+            <form  class="my-form" action="" method="get" id="block">
+                <div class="msg"></div>
+                <input type="submit" class="btn" value="חפש" name="" id="searchBtn">
+                <div class="form">
+                    <input type="search" name="search" id="searchLine" placeholder="...הזן את החיפוש שלך כאן">
+                </div>
+            </form>
+        </div>
     </div>
     <footer id="footer">
           <h4>כל הזכויות שמורות לנעם אבישור 2022</h4>
