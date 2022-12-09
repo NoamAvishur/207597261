@@ -1,25 +1,25 @@
 const myForm = document.querySelector('.my-form')
-const emailInput = document.querySelector('#email')
-const passwordInput = document.querySelector('#password')
+const searchInput=document.querySelector(`#searchLine`)
 const msg = document.querySelector('.msg')
 const userList = document.querySelector('.users')
+
 const onSubmit = (e) => {
     e.preventDefault()
-    if (emailInput.value === '' || passwordInput.value === '' ){
+    if (searchInput.value === '' ){
         console.log('error')
-        msg.innerHTML = 'בבקשה הכנס ערך בכל השדות'
+        msg.innerHTML = 'בבקשה הכנס ערך'
         msg.classList.add('error')
     } else {
         console.log('success')
         const li = document.createElement('li')
-        li.innerHTML = `${passwordInput.value}: ${emailInput.value}`
+        li.innerHTML = `${searchInput.value}`
         //userList.appendChild(li)
         // clean fields
-        passwordInput.value = ''
-        emailInput.value = ''
+        searchInput.value = ''
         msg.innerHTML = ''
         msg.classList.remove('error')
-
+        window.location.href="../views/Results.html"
     }
 }
+
 myForm.addEventListener('submit', onSubmit)

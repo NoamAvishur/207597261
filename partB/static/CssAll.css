@@ -39,10 +39,13 @@ a:active{
 #header{
     grid-area: header;
 }
-
+#createHeadline{
+        margin-left: 65%;
+}
 .createAccount{
     font-family: "Segoe UI Light";
     color: #502c56;
+    margin-left: 60%;
 }
 
 #logo{
@@ -108,7 +111,7 @@ text-align:left;
     grid-area: footer;
     color: #502c56;
     font-family: "Segoe UI Light";
-    margin-top: 10%;
+    margin-top: 5%;
     text-align: center;
 }
 .error {
@@ -148,10 +151,11 @@ p{
 .left{
     font-family: "Segoe UI Light";
     float: left;
-    width: 40%;
+    width: 45%;
     padding: 15px;
     box-sizing: border-box;
     color: #502c56;
+    text-align: center;
 }
 .center {
     font-family: "Segoe UI Light";
@@ -161,10 +165,19 @@ p{
     color: #502c56;
 }
 .right{
-    font-family: "Segoe UI Light";
+    font-family: "Segoe UI Semibold";
     float: left;
     width: 45%;
     padding: 15px;
     box-sizing: border-box;
     color: #502c56;
+    font-size: large;
+}
+#contact{
+    height: 320px;
+    margin-left: 5%;
+}
+#contactText{
+    margin-left: 40%;
+    margin-top: 15%;
 }
