@@ -35,16 +35,77 @@
     </header>
     <br>
     <div class="content">
-        <h1 id="headline">תוצאות</h1>
-        <br>
-        <div class="search">
+        <div class="results">
+            <h1>תוצאות החיפוש</h1>
+            <br>
             <form  class="my-form" action="" method="get" id="block">
                 <div class="msg"></div>
                 <input type="submit" class="btn" value="חפש" name="" id="searchBtn">
                 <div class="form">
-                    <input type="search" name="search" id="searchLine" placeholder="...הזן את החיפוש שלך כאן">
+                    <input type="search" name="search" id="resultLine" placeholder="מה שהמשתמש חיפש">
                 </div>
             </form>
+            <div id="resultsList">
+                <ul>
+                    <li class="item">
+                    <div class="rightSeller"></div>
+                    <div class="centerSeller">
+                          שם המוצר
+                            <br>
+                          תיאור
+                            <br>
+                          מחיר
+                      </div>
+                      <div class="leftSeller">
+                          תמונה
+                      </div>
+                      <br>
+                  </li>
+                  <li class="item">
+                      <div class="rightSeller"></div>
+                      <div class="centerSeller">
+                          שם המוצר
+                            <br>
+                          תיאור
+                            <br>
+                          מחיר
+                      </div>
+                      <div class="leftSeller">
+                          תמונה
+                      </div>
+                      <br>
+                  </li>
+                  <li class="item">
+                      <div class="rightSeller"></div>
+                      <div class="centerSeller">
+                          שם המוצר
+                            <br>
+                          תיאור
+                            <br>
+                          מחיר
+                      </div>
+                      <div class="leftSeller">
+                          תמונה
+                      </div>
+                  </li>
+             </ul>
+            </div>
+            <div class="sidebar">
+                <h4>סינון לפי</h4>
+                <h5>סוג</h5>
+                <ul>
+                    <li class="item">מוצר</li>
+                    <li class="item">שירות</li>
+                </ul>
+                <h5>תת קטגוריה</h5>
+                <ul>
+                    <li class="item">תת קטגוריה א</li>
+                    <li class="item">תת קטגוריה א</li>
+                    <li class="item">תת קטגוריה א</li>
+                </ul>
+                <h5>מחיר</h5>
+                עד ___ ש"ח
+            </div>
         </div>
     </div>
     <footer id="footer">

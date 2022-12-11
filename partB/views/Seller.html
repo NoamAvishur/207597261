@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../static/cssAll.css">
-    <script src="../static/Home.js"></script>
+    <script defer src="../static/Home.js"></script>
 </head>
 <body>
     <header id="header">
@@ -26,15 +26,67 @@
     </header>
     <br>
     <div class="content">
-        <h1>שלום (שם המוכר)</h1>
+        <h1 id="createHeadline">,שלום נעם</h1>
         <br>
-        <h2>המוצרים / השירותים שלך</h2>
-        <br>
-        <ul>
-          <li>list item 1</li>
-          <li>list item 2</li>
-          <li>list item 3</li>
+        <h2 id="sellerHeadLine">המוצרים / השירותים שלך</h2>
+        <ul id="sellerItems">
+          <li class="item">
+              <div class="rightSeller">
+                  <a href="../views/EditProduct.html">ערוך</a>
+                   |
+                  <a href="#">מחק</a>
+              </div>
+              <div class="centerSeller">
+                  שם המוצר
+                    <br>
+                  תיאור
+                    <br>
+                  מחיר
+              </div>
+              <div class="leftSeller">
+                  תמונה
+              </div>
+              <br>
+          </li>
+          <li class="item">
+              <div class="rightSeller">
+                  <a href="../views/EditProduct.html">ערוך</a>
+                   |
+                  <a href="#">מחק</a>
+              </div>
+              <div class="centerSeller">
+                  שם המוצר
+                    <br>
+                  תיאור
+                    <br>
+                  מחיר
+              </div>
+              <div class="leftSeller">
+                  תמונה
+              </div>
+              <br>
+          </li>
+          <li class="item">
+              <div class="rightSeller">
+                  <a href="../views/EditProduct.html">ערוך</a>
+                   |
+                  <a href="#">מחק</a>
+              </div>
+              <div class="centerSeller">
+                  שם המוצר
+                    <br>
+                  תיאור
+                    <br>
+                  מחיר
+              </div>
+              <div class="leftSeller">
+                  תמונה
+              </div>
+              <br>
+          </li>
         </ul>
+        <br>
+        <a id="creatNew" href="../views/CreateProduct.html">צור מוצר או שירות חדש</a>
     </div>
     <footer id="footer">
           <h4>כל הזכויות שמורות לנעם אבישור 2022</h4>
