@@ -29,26 +29,26 @@
             <h1 id="createHeadline"> עריכת מוצר או שירות</h1>
             <br>
             <div class="createProduct">
-                <form class="my-form" action="" method="get" id="block">
+                <form class="my-form" action="" method="get">
                     <div class="left">
                         <div class="form">
                             <input type="image" name="Image" id="Image" placeholder="הוסף תמונה">
                         </div>
                         <br>
                         <div class="form">
-                            <label>מחיר:</label>
-                            <input type="number" name="Price" id="Price">
+                            <label>מחיר*:</label>
+                            <input type="number" min="0" max="10000" name="Price" id="Price">
                             <label>ש"ח</label>
                         </div>
                         <br>
                         <div class="form">
                             <input type="tel" name="Phone" id="Phone">
-                            <label>:טלפון </label>
+                            <label>:*טלפון </label>
                         </div>
                         <br>
                         <div class="form">
                             <input type="text" name="Address" id="Address">
-                            <label>:כתובת </label>
+                            <label>:*כתובת </label>
                         </div>
                         <br>
                         <input type="submit" class="btn" value="שמור" name="">
@@ -57,7 +57,7 @@
                       <div class="msg"></div>
                       <div class="form">
                           <input type="text" name="Name" id="Name">
-                          <label>:שם </label>
+                          <label>:*שם </label>
                       </div>
                       <br>
                       <div class="form">
@@ -70,7 +70,7 @@
                       <br>
                       <div class="form">
                           <select type="text" name="Category" id="Category">
-                            <option value="default">בחר תת קטגוריה</option>
+                            <option value="" disabled selected>בחר תת קטגוריה</option>
                             <option value="clothing">ביגוד</option>
                             <option value="Decor">עיצוב הבית</option>
                             <option value="moving">הובלות</option>
@@ -78,7 +78,7 @@
                             <option value="fix">תיקונים</option>
                             <option value="other">אחר</option>
                           </select>
-                          <label>:תת קטגוריה </label>
+                          <label>:*תת קטגוריה </label>
                       </div>
                       <br>
                       <div class="form">

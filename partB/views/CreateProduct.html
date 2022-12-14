@@ -37,7 +37,7 @@
                         <br>
                         <div class="form">
                             <label>מחיר*:</label>
-                            <input type="number" name="Price" id="Price">
+                            <input type="number" min="0" max="10000" name="Price" id="Price">
                             <label>ש"ח</label>
                         </div>
                         <br>
@@ -70,7 +70,7 @@
                       <br>
                       <div class="form">
                           <select type="text" name="Category" id="Category">
-                            <option value="default">בחר תת קטגוריה</option>
+                            <option value="" disabled selected>בחר תת קטגוריה</option>
                             <option value="clothing">ביגוד</option>
                             <option value="Decor">עיצוב הבית</option>
                             <option value="moving">הובלות</option>
@@ -88,7 +88,6 @@
                     </div>
                 </form>
             </div>
-            <ul class="users"></ul>
         </div>
         <footer id="footer">
           <h4>כל הזכויות שמורות לנעם אבישור 2022</h4>

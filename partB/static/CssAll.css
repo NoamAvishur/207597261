@@ -40,12 +40,17 @@ a:active{
     grid-area: header;
 }
 #createHeadline{
-        margin-left: 55%;
+    margin-left: 55%;
+    padding: 15px;
 }
 .createAccount{
     font-family: "Segoe UI Light";
     color: #502c56;
-    margin-left: 60%;
+    margin-left: 55%;
+}
+#submitAccount{
+    float: left;
+    margin-bottom: 5%;
 }
 
 #logo{
@@ -56,7 +61,7 @@ a:active{
 
 .content {
     position: relative;
-    font-family: "Segoe UI Semibold";
+    font-family: "Segoe UI Light";
     grid-area: content;
     text-align: center;
 }
@@ -116,9 +121,8 @@ text-align:left;
     grid-area: footer;
     color: #502c56;
     font-family: "Segoe UI Light";
-    margin-top: 5%;
     text-align: center;
-    margin-bottom: 3%;
+    margin-bottom: 1%;
 }
 .error {
     font-weight: bold;
@@ -142,55 +146,70 @@ text-align:left;
     color: #502c56;
     border: none;
     padding: 10px;
-    margin-bottom: 10%;
+    margin-bottom: 20%;
 }
 #searchBtn{
     display: inline;
     margin-left: 35%;
 }
+#searchBtn:hover{
+	background-size: 50vh;
+	background: linear-gradient(90deg, #502c56, rgb(236, 228, 233), rgb(145, 120, 150), #734b7c);
+	background-size: 400%;
+	animation: glow 8s linear infinite;
+}
+
+@keyframes glow {
+	0% {
+		background-position: 0%;
+	}
+
+	100% {
+		background-position: 400%;
+	}
+}
+
 p{
     width: 45%;
     text-align: center;
     margin-left: 27%;
+    margin-bottom: 5%;
 }
 
 .left{
     font-family: "Segoe UI Light";
     float: left;
-    width: 45%;
+    width: 40%;
     padding: 15px;
     box-sizing: border-box;
     color: #502c56;
     text-align: center;
-    margin-left: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 .center {
     font-family: "Segoe UI Light";
     float: left;
-    width: 10%;
+    width: 20%;
     box-sizing: border-box;
     color: #502c56;
 }
 .right{
     font-family: "Segoe UI Light";
     float: left;
-    width: 45%;
-    padding: 15px;
+    width: 40%;
     box-sizing: border-box;
     color: #502c56;
-    font-size: large;
-    margin-bottom: 10%;
-
+    margin-bottom: 5%;
 }
 #contact{
     width: 100%;
     height: 320px;
-    margin-left: 5%;
+    margin-left: 15%;
 }
 #contactText{
     margin-left: 40%;
     margin-top: 15%;
+    font-size: large;
 }
 #Category{
     margin: 10px;
@@ -244,9 +263,13 @@ p{
     padding: 15px;
     box-sizing: border-box;
 }
-#createNew{
+#createNewProduct{
     margin-left: 10%;
     float: left;
+    margin-bottom: 3%;
+}
+.createProduct{
+    margin-left: 20%;
 }
 #resultLine{
     display: inline;
@@ -284,5 +307,24 @@ p{
 }
 .block{
     display: block;
-    margin-top: 90%;
+    margin-top: 35%;
+    color: #CDA9D3;
+    margin-bottom: 3%;
+}
+.resultPic{
+    width: 70px;
+    height: 90px;
+}
+#backPic{
+    display: inline;
+    width: 20px;
+    height: 20px;
+}
+#productPic{
+    width: 45%;
+}
+#back{
+    display: block;
+    margin-top: 24%;
+    margin-bottom: 3%;
 }

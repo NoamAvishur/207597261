@@ -4,6 +4,7 @@ const lastNameInput=document.querySelector(`#lastName`)
 const emailInput = document.querySelector('#email')
 const passwordInput = document.querySelector('#password')
 const msg = document.querySelector('.msg')
+//const users = {firstname: "",lastName:"", email: "",password:""}
 //const userList = JSON
 var currentPage = window.location.pathname;
 
@@ -28,7 +29,7 @@ const onSubmit = (e) => {
         console.log('success')
         const li = document.createElement('li')
         li.innerHTML = `${firstNameInput.value}: ${lastNameInput.value}: ${emailInput.value}: ${passwordInput.value}`
-        //userList.appendChild(li)
+        //users(li)
         // clean fields
         firstNameInput.value = ''
         lastNameInput.value = ''
