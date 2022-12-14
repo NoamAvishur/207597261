@@ -1,9 +1,8 @@
 const myForm = document.querySelector('.my-form')
 const resultInput=document.querySelector(`#resultLine`)
 const msg = document.querySelector('.msg')
-//const searchesList = JSON
-var currentPage = window.location.pathname;
 
+var currentPage = window.location.pathname;//active nav bar
 const activePage = document.querySelectorAll('nav a').forEach(
     link =>{
         console.log(link);
@@ -15,7 +14,7 @@ const activePage = document.querySelectorAll('nav a').forEach(
 );
 console.log();
 
-const onSubmit = (e) => {
+const onSubmit = (e) => {//check input
     e.preventDefault()
     if (resultInput.value === '' ){
         console.log('error')
@@ -25,7 +24,6 @@ const onSubmit = (e) => {
         console.log('success')
         const li = document.createElement('li')
         li.innerHTML = `${resultInput.value}`
-        //searchesList.appendChild(li)
         // clean fields
         resultInput.value = ''
         msg.innerHTML = ''

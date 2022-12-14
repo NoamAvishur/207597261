@@ -1,5 +1,4 @@
-var currentPage = window.location.pathname;
-
+var currentPage = window.location.pathname;//active nav bar
 const activePage = document.querySelectorAll('nav a').forEach(
     link =>{
         console.log(link);

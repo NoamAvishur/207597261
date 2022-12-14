@@ -4,10 +4,8 @@ const lastNameInput=document.querySelector(`#lastName`)
 const emailInput = document.querySelector('#email')
 const passwordInput = document.querySelector('#password')
 const msg = document.querySelector('.msg')
-//const users = {firstname: "",lastName:"", email: "",password:""}
-//const userList = JSON
-var currentPage = window.location.pathname;
 
+var currentPage = window.location.pathname;//active nav bar
 const activePage = document.querySelectorAll('nav a').forEach(
     link =>{
         console.log(link);
@@ -19,7 +17,7 @@ const activePage = document.querySelectorAll('nav a').forEach(
 );
 console.log();
 
-const onSubmit = (e) => {
+const onSubmit = (e) => {//check input
     e.preventDefault()
     if (emailInput.value === '' || passwordInput.value === '' || firstNameInput.value === '' || lastNameInput.value === '' ){
         console.log('error')
@@ -29,7 +27,6 @@ const onSubmit = (e) => {
         console.log('success')
         const li = document.createElement('li')
         li.innerHTML = `${firstNameInput.value}: ${lastNameInput.value}: ${emailInput.value}: ${passwordInput.value}`
-        //users(li)
         // clean fields
         firstNameInput.value = ''
         lastNameInput.value = ''

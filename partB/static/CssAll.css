@@ -54,11 +54,15 @@ a:active{
 }
 
 #logo{
-    display: block;
+    display: inline;
     float:left ;
-    width: 10%;
+    width: 120px;
+    height: 70px;
 }
-
+#userHeader{
+    float: right;
+    padding: 10px;
+}
 .content {
     position: relative;
     font-family: "Segoe UI Light";
@@ -315,7 +319,7 @@ p{
     width: 70px;
     height: 90px;
 }
-#backPic{
+.backPic{
     display: inline;
     width: 20px;
     height: 20px;
@@ -327,4 +331,29 @@ p{
     display: block;
     margin-top: 24%;
     margin-bottom: 3%;
+}
+.formLand{
+    padding: 10px;
+}
+.formLand input{
+    padding: 8px;
+    width: 40%;
+    background-color: #DCC2E0;
+    border:none;
+    border-radius: 10px;
+}
+.formLand label{
+    padding: 8px;
+    width: 60%;
+}
+.linkLand{
+    margin-right: 15%;
+    font-weight: bold;
+    float: right;
+    color: #502c56;
+}
+#headlineLand{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: "Segoe UI Semibold";
 }

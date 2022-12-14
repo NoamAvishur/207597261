@@ -7,9 +7,8 @@ const priceInput = document.querySelector('#Price')
 const phoneInput = document.querySelector('#Phone')
 const addressInput = document.querySelector('#Address')
 const msg = document.querySelector('.msg')
-//const productList = JSON
-var currentPage = window.location.pathname;
 
+var currentPage = window.location.pathname;//active nav bar
 const activePage = document.querySelectorAll('nav a').forEach(
     link =>{
         console.log(link);
@@ -21,7 +20,7 @@ const activePage = document.querySelectorAll('nav a').forEach(
 );
 console.log();
 
-const onSubmit = (e) => {
+const onSubmit = (e) => {//check input
     e.preventDefault()
     if (nameInput.value === '' || categoryInput.value === '' || priceInput.value === '' || phoneInput.value === '' || addressInput.value === ''){
         console.log('error')
@@ -31,7 +30,6 @@ const onSubmit = (e) => {
         console.log('success')
         const li = document.createElement('li')
         li.innerHTML = `${nameInput.value}: ${categoryInput.value}: ${priceInput.value}: ${phoneInput.value}: ${addressInput.value}: ${descriptionInput.value}: ${imageInput.value} `
-        //productList.appendChild(li)
         // clean fields
         nameInput.value = ''
         categoryInput.value = 'בחר תת קטגוריה'
