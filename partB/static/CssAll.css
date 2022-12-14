@@ -83,6 +83,9 @@ a:active{
     background-color: darkgray ;
     color: #502c56 ;
 }
+.active{
+    color: darkgrey;
+}
 .form{
     margin: 10px;
     text-align: center;
@@ -115,6 +118,7 @@ text-align:left;
     font-family: "Segoe UI Light";
     margin-top: 5%;
     text-align: center;
+    margin-bottom: 3%;
 }
 .error {
     font-weight: bold;
@@ -159,6 +163,7 @@ p{
     color: #502c56;
     text-align: center;
     margin-left: 10%;
+    margin-bottom: 10%;
 }
 .center {
     font-family: "Segoe UI Light";
@@ -168,15 +173,18 @@ p{
     color: #502c56;
 }
 .right{
-    font-family: "Segoe UI Semibold";
+    font-family: "Segoe UI Light";
     float: left;
     width: 45%;
     padding: 15px;
     box-sizing: border-box;
     color: #502c56;
     font-size: large;
+    margin-bottom: 10%;
+
 }
 #contact{
+    width: 100%;
     height: 320px;
     margin-left: 5%;
 }
@@ -273,4 +281,8 @@ p{
     text-align: right;
     background-color: #DCC2E0;
     display: inline;
+}
+.block{
+    display: block;
+    margin-top: 90%;
 }

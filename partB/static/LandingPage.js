@@ -1,8 +1,21 @@
-const myForm = document.querySelector('.my-form')
-const emailInput = document.querySelector('#email')
-const passwordInput = document.querySelector('#password')
-const msg = document.querySelector('.msg')
-const userList = document.querySelector('.users')
+const myForm = document.querySelector('.my-form');
+const emailInput = document.querySelector('#email');
+const passwordInput = document.querySelector('#password');
+const msg = document.querySelector('.msg');
+//const loginList = JSON
+var currentPage = window.location.pathname;
+
+const activePage = document.querySelectorAll('nav a').forEach(
+    link =>{
+        console.log(link);
+        console.log(currentPage);
+        if (link.href.includes(`${currentPage}`)) {
+            link.classList.add('active');
+        }
+    }
+);
+console.log();
+
 const onSubmit = (e) => {
     e.preventDefault()
     if (emailInput.value === '' || passwordInput.value === '' ){
@@ -13,14 +26,13 @@ const onSubmit = (e) => {
         console.log('success')
         const li = document.createElement('li')
         li.innerHTML = `${passwordInput.value}: ${emailInput.value}`
-        //userList.appendChild(li)
-        window.location.href="../views/Seller.html"
+        //loginList.appendChild(li)
         // clean fields
         passwordInput.value = ''
         emailInput.value = ''
         msg.innerHTML = ''
         msg.classList.remove('error')
-
+        window.location.href="../views/Seller.html"
     }
 }
 myForm.addEventListener('submit', onSubmit)
