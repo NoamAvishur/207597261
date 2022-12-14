@@ -8,18 +8,6 @@ const phoneInput = document.querySelector('#Phone')
 const addressInput = document.querySelector('#Address')
 const msg = document.querySelector('.msg')
 
-var currentPage = window.location.pathname;//active nav bar
-const activePage = document.querySelectorAll('nav a').forEach(
-    link =>{
-        console.log(link);
-        console.log(currentPage);
-        if (link.href.includes(`${currentPage}`)) {
-            link.classList.add('active');
-        }
-    }
-);
-console.log();
-
 const onSubmit = (e) => {//check input
     e.preventDefault()
     if (nameInput.value === '' || categoryInput.value === '' || priceInput.value === '' || phoneInput.value === '' || addressInput.value === ''){
