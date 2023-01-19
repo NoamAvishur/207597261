@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ece4e9;
+    color: #502c56;
+    line-height: 1.6em;
+    display: grid;
+    grid-template-areas:
+    'header'
+    'content'
+    'footer';
+    gap: 10px;
+}
+li{
+    margin: 5%;
+    text-align: center;
+    list-style-type: none;
+    display: inline;
+}
+nav{
+    text-align: center;
+    margin: 5%;
+    font-family: "Segoe UI Semibold";
+}
+a{
+    text-decoration: none;
+    font-family: "Segoe UI Semibold";
+    color: #502c56;
+}
+a:hover{
+    color: #CDA9D3;
+}
+a:active{
+    color: darkgrey;
+}
+#header{
+    grid-area: header;
+}
+#createHeadline{
+    margin-left: 55%;
+    padding: 15px;
+}
+.createAccount{
+    font-family: "Segoe UI Light";
+    color: #502c56;
+    margin-left: 55%;
+}
+#submitAccount{
+    float: left;
+    margin-bottom: 5%;
+}
+
+#logo{
+    display: inline;
+    float:left ;
+    width: 120px;
+    height: 70px;
+}
+#userHeader{
+    float: right;
+    padding: 10px;
+}
+.content {
+    position: relative;
+    font-family: "Segoe UI Light";
+    grid-area: content;
+    text-align: center;
+}
+
+.btn{
+    display: inline-block;
+    color: #ece4e9;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    background-color: #502c56;
+    border-radius: 30px;
+    border: none;
+    font-family: "Segoe UI Semibold";
+    margin: 10px;
+}
+
+.btn:hover {
+    /*transform: rotateZ(360deg);*/
+    background-color: #CDA9D3 ;
+    color: white;
+}
+.btn:active {
+    /*transform: rotateZ(360deg);*/
+    background-color: darkgray ;
+    color: #502c56 ;
+}
+.active{
+    color: darkgrey;
+}
+.form{
+    margin: 10px;
+    text-align: center;
+    display: inline;
+}
+.form input{
+    margin: 10px;
+    padding: 8px;
+    background-color: #DCC2E0;
+    border:none;
+    border-radius: 10px;
+    text-align: right;
+    color: #502c56;
+    font-family: "Segoe UI Light";
+}
+.form input[type='text']{
+    text-align: right;
+}
+.form input[type='text']:focus{
+text-align:left;
+}
+.form label{
+    padding: 8px;
+    font-family: "Segoe UI Light";
+}
+
+#footer{
+    grid-area: footer;
+    color: #502c56;
+    font-family: "Segoe UI Light";
+    text-align: center;
+    margin-bottom: 1%;
+}
+.error {
+    font-weight: bold;
+    color: #502c56;
+    padding: 3px;
+    margin: 3px;
+}
+#headline{
+    text-align: center;
+}
+.search{
+    margin-right: 30%;
+}
+#searchLine{
+    display: inline;
+    margin-top: 5%;
+    width: 45%;
+    border-radius: 10px;
+    background-color: #DCC2E0;
+    font-family: "Segoe UI Light";
+    color: #502c56;
+    border: none;
+    padding: 10px;
+    margin-bottom: 20%;
+}
+#searchBtn{
+    display: inline;
+    margin-left: 35%;
+}
+#searchBtn:hover{
+	background-size: 50vh;
+	background: linear-gradient(90deg, #502c56, rgb(236, 228, 233), rgb(145, 120, 150), #734b7c);
+	background-size: 400%;
+	animation: glow 8s linear infinite;
+}
+
+@keyframes glow {
+	0% {
+		background-position: 0%;
+	}
+
+	100% {
+		background-position: 400%;
+	}
+}
+
+p{
+    width: 45%;
+    text-align: center;
+    margin-left: 27%;
+    margin-bottom: 5%;
+}
+
+.left{
+    font-family: "Segoe UI Light";
+    float: left;
+    width: 40%;
+    padding: 15px;
+    box-sizing: border-box;
+    color: #502c56;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.center {
+    font-family: "Segoe UI Light";
+    float: left;
+    width: 20%;
+    box-sizing: border-box;
+    color: #502c56;
+}
+.right{
+    font-family: "Segoe UI Light";
+    float: left;
+    width: 40%;
+    box-sizing: border-box;
+    color: #502c56;
+    margin-bottom: 5%;
+}
+#contact{
+    width: 100%;
+    height: 320px;
+    margin-left: 15%;
+}
+#contactText{
+    margin-left: 40%;
+    margin-top: 15%;
+    font-size: large;
+}
+#Category{
+    margin: 10px;
+    padding: 8px;
+    background-color: #DCC2E0;
+    border:none;
+    border-radius: 10px;
+    text-align: right;
+    color: #502c56;
+    font-family: "Segoe UI Light";
+}
+#Image{
+    margin: 10px;
+    padding: 30px;
+    background-color: #DCC2E0;
+    border:none;
+    border-radius: 10px;
+    text-align: right;
+    color: #502c56;
+    font-family: "Segoe UI Light";
+}
+#Description{
+    padding: 20px;
+}
+#Price{
+    width: 10%;
+}
+.item{
+    display: block;
+    text-align: right;
+}
+#sellerHeadLine{
+    margin-left: 46%;
+}
+.rightSeller{
+    width: 40%;
+    float: left;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.centerSeller{
+    width: 50%;
+    float: left;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: right;
+}
+.leftSeller{
+    width: 10%;
+    float: left;
+    padding: 15px;
+    box-sizing: border-box;
+}
+#createNewProduct{
+    margin-left: 10%;
+    float: left;
+    margin-bottom: 3%;
+}
+.createProduct{
+    margin-left: 20%;
+}
+#resultLine{
+    display: inline;
+    width: 45%;
+    border-radius: 10px;
+    background-color: #DCC2E0;
+    font-family: "Segoe UI Light";
+    color: #502c56;
+    border: none;
+    padding: 10px;
+}
+.results{
+    position: relative;
+    text-align: right;
+    margin-right: 5%;
+}
+#resultsList{
+    width: 85%;
+    float: left;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: right;
+    display: inline;
+}
+.sidebar{
+    font-family: "Segoe UI Light";
+    border-radius: 10px;
+    width: 15%;
+    float: left;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: right;
+    background-color: #DCC2E0;
+    display: inline;
+}
+.block{
+    display: block;
+    margin-top: 35%;
+    color: #CDA9D3;
+    margin-bottom: 3%;
+}
+.resultPic{
+    width: 70px;
+    height: 90px;
+}
+.backPic{
+    display: inline;
+    width: 20px;
+    height: 20px;
+}
+#productPic{
+    width: 45%;
+}
+#back{
+    display: block;
+    margin-top: 24%;
+    margin-bottom: 3%;
+}
+.formLand{
+    padding: 10px;
+}
+.formLand input{
+    padding: 8px;
+    width: 40%;
+    background-color: #DCC2E0;
+    border:none;
+    border-radius: 10px;
+}
+.formLand label{
+    padding: 8px;
+    width: 60%;
+}
+.linkLand{
+    margin-right: 15%;
+    font-weight: bold;
+    float: right;
+    color: #502c56;
+}
+#headlineLand{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: "Segoe UI Semibold";
+}

@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title Title
+  link(rel='stylesheet' href='../static/CssAll.css')
+  script( src='../static/LandingPage.js', defer)
+header#header
+  a(href='../views/LandingPage.html')
+    img#logo(src='../static/logo.png')
+.content
+  #headlineLand
+    h1 Welcome to Buy From A Student
+    br
+    h2 ?מה תרצה לעשות כאן היום
+  br
+  .left
+    h3 באתי לקנות
+    a.btn(href='../views/Home.html') עבור לאתר
+  .center
+    img(src='../static/line.png')
+  .right
+    h3 באתי למכור
+    form#block.my-form(action='' method='get')
+      .msg
+      .formLand
+        input#email(type='email' name='email')
+        label :אימייל; 
+      .formLand
+        input#password(type='password' name='password')
+        label :סיסמא;
+      input#searchbtn.btn(type='submit' value='התחבר' name='')
+    br
+    a.linkLand(href='../views/CreateAccount.html') צור משתמש חדש
+footer#footer
+  h4 כל הזכויות שמורות לנעם אבישור 2023
