@@ -8,56 +8,33 @@ html(lang="en")
         script(src='All.js', defer) 
         title Document
     body 
-      header#header
-        a(href='landingPage')
-        img#logo(class=logo, src='logo.png')
-      div.content
-        #headlineLand
-          h1 Welcome to Buy From A Student
-          br
-          h2 ?מה תרצה לעשות כאן היום
-          br
-      div.left
-          h3 באתי לקנות
-          a.btn(href='http://localhost:3000/home') עבור לאתר
-      div.center
-          img(src='line.png')
-      div.right
-          h3 באתי למכור
-          form#block.my-form(action='' method='get')
-            div.msg
-            div.formLand
-              input#email(type='email' name='email')
-              label :אימייל; 
-            div.formLand
-              input#password(type='password' name='password')
-              label :סיסמא;
-            input#searchbtn.btn(type='submit' value='התחבר' name='')
-          br
-          a.linkLand(href='http://localhost:3000/createAccount') צור משתמש חדש
-      footer#footer
-        h4  Noam Avishur - Web BGU&copy; 2023 
-//*extends layout
-  block content
-      h1 Welcome to Buy From A Student
-      br
-      h2 ?מה תרצה לעשות כאן היום
-    br
-    .left
-      h3 באתי לקנות
-      a.btn(href='http://localhost:3000/Home') עבור לאתר
-    .center
-      img(src='line.png')
-    .right
-      h3 באתי למכור
-      form#block.my-form(action='' method='get')
-        .msg
-        .formLand
-          input#email(type='email' name='email')
-          label :אימייל; 
-        .formLand
-          input#password(type='password' name='password')
-          label :סיסמא;
-          input#searchbtn.btn(type='submit' value='התחבר' name='')
-    br
-    a.linkLand(href='http://localhost:3000/createAccount') צור משתמש חדש
+        header
+              div.header
+                a(href='http://localhost:3000/')
+                  img#logo(class=logo, src='logo.png')
+        div.content
+              div
+                h1 Welcome to Buy From A Student 
+                h2 ?מה תרצה לעשות כאן היום
+                tr
+              div.left
+                      h3 באתי לקנות
+                      a.btn(href='http://localhost:3000/home') עבור לאתר
+              div.center
+                      img(src='line.png')
+              div.right
+                      h3 באתי למכור
+                      form(action="/Connect" ,method="get", id="block", class="my-form")
+                              div.msg
+                              div.formLand
+                                input(type='email', name='email', id='email')
+                                label :אימייל 
+                              div.formLand
+                                input(type='password', name='password', id='password')
+                                label :סיסמא
+                              input#searchbtn.btn(type='submit' value='התחבר' name='')
+                      tr
+                      a.linkLand(href='http://localhost:3000/createAccount') צור משתמש חדש
+        footer
+            div.footer 
+                h4  Noam Avishur - Web BGU&copy; 2023 

@@ -7,22 +7,25 @@ html(lang="en")
         link(rel='stylesheet' href='cssAll.css')
         script(src='All.js', defer) 
         title Document
-    body 
-    header#header
-        a(href='http://localhost:3000/landingPage')
-        img#logo(src='logo.png')
-    div
-        a(href='seller') שלום, מוכר
-        img.backPic(src='user.png')
-        br
-    nav 
-        ul 
-            li 
-                a(href="http://localhost:3000/home") דף הבית 
-            li 
-                a(href="http://localhost:3000/about") אודותינו
-            li 
-                a(href="http://localhost:3000/contact") צור קשר
-    block content 
-    footer#footer 
-        h4  Noam Avishur - Web BGU&copy; 2023 
+    body
+
+        header
+            div.header
+                a(href='http://localhost:3000/')
+                    img#logo(src='logo.png')
+            div.userHeader
+                a(href='seller') שלום, מוכר
+                img.backPic(src='user.png')
+                br
+        nav 
+            ul 
+                li 
+                    a(href="http://localhost:3000/home") דף הבית 
+                li 
+                    a(href="http://localhost:3000/about") אודותינו
+                li 
+                    a(href="http://localhost:3000/contact") צור קשר
+        block content 
+        footer
+            div.footer 
+                h4  Noam Avishur - Web BGU&copy; 2023 
