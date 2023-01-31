@@ -1,0 +1,8 @@
+extends layout
+block content
+    h1.headline חפש מוצר או שירות
+        form(action="/SearchProduct", method="get",id="block")
+        div.msg 
+        input(type="submit", class="btn" value="חפש" name="searchBtn" id="searchBtn") 
+        div.form
+            input(type="search", name="search", class="searchLine", placeholder="...הזן את החיפוש שלך כאן")

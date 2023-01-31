@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/cssAll.css">
+    <script defer src="../static/Results.js"></script>
+</head>
+<body>
+    <header id="header">
+        <a href="../views/LandingPage.html"><img id="logo" src="../static/logo.png"></a>
+        <div id="userHeader">
+                <a href="../views/Seller.html">שלום, נעם</a>
+                <img src="../static/user.png" class="backPic">
+        </div>
+        <br>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../views/Home.html">דף הבית</a>
+                    </li>
+                    <li>
+                        <a href="../views/About.html">אודותינו</a>
+                    </li>
+                    <li>
+                        <a href="../views/Contact.html">צור קשר</a>
+                    </li>
+                </ul>
+            </nav>
+    </header>
+    <br>
+    <div class="content">
+        <div class="results">
+            <h1>תוצאות החיפוש</h1>
+            <br>
+            <form  class="my-form" action="" method="get" id="block">
+                <div class="msg"></div>
+                <input type="submit" class="btn" value="חפש" name="" id="searchBtn">
+                <div class="form">
+                    <input type="search" name="search" id="resultLine" placeholder="מה שהמשתמש חיפש">
+                </div>
+            </form>
+            <div id="resultsList">
+                <ul>
+                    <li class="item">
+                    <div class="rightSeller"></div>
+                    <div class="centerSeller">
+                          <a href="../views/Product.html">עציץ בטון</a>
+                            <br>
+                          <b>תיאור :</b>
+                          סוקולנט בעציץ בטון עבודת יד
+                            <br>
+                          <b>מחיר :</b>
+                          50 ש"ח
+                      </div>
+                      <div class="leftSeller">
+                          <img src="../static/productPic.jpg" class="resultPic">
+                      </div>
+                      <br>
+                  </li>
+                  <li class="item">
+                      <div class="rightSeller"></div>
+                      <div class="centerSeller">
+                          <a href="../views/Product.html">
+                              <b>עציץ בטון</b>
+                          </a>
+                            <br>
+                          <b>תיאור :</b>
+                          סוקולנט בעציץ בטון עבודת יד
+                            <br>
+                          <b>מחיר :</b>
+                          50 ש"ח
+                      </div>
+                      <div class="leftSeller">
+                          <img src="../static/productPic.jpg" class="resultPic">
+                      </div>
+                      <br>
+                  </li>
+                  <li class="item">
+                      <div class="rightSeller"></div>
+                      <div class="centerSeller">
+                          <a href="../views/Product.html">עציץ בטון</a>
+                            <br>
+                          <b>תיאור :</b>
+                          סוקולנט בעציץ בטון עבודת יד
+                            <br>
+                          <b>מחיר :</b>
+                          50 ש"ח
+                      </div>
+                      <div class="leftSeller">
+                          <img src="../static/productPic.jpg" class="resultPic">
+                      </div>
+                  </li>
+             </ul>
+            </div>
+            <div class="sidebar">
+                <h4>סינון לפי</h4>
+                <h5>סוג</h5>
+                <ul>
+                    <li class="item">מוצר</li>
+                    <li class="item">שירות</li>
+                </ul>
+                <h5>תת קטגוריה</h5>
+                <ul>
+                    <li class="item">תת קטגוריה א</li>
+                    <li class="item">תת קטגוריה ב</li>
+                    <li class="item">תת קטגוריה ג</li>
+                </ul>
+                <h5>מחיר</h5>
+                עד ___ ש"ח
+            </div>
+        </div>
+        <br>
+        <h4 class="block">1  |  2  |  3  |  4  |  ...  |  15</h4>
+    </div>
+    <footer id="footer">
+          <h4>כל הזכויות שמורות לנעם אבישור 2022</h4>
+    </footer>
+</body>
+</html>
