@@ -10,6 +10,7 @@ body {
     display: grid;
     grid-template-areas:
     'header'
+    'nav'
     'content'
     'footer';
     gap: 10px;
@@ -23,6 +24,7 @@ li{
 nav{
     text-align: center;
     font-family: "Segoe UI Semibold";
+    grid-area: nav;
 }
 a{
     text-decoration: none;
@@ -63,7 +65,6 @@ a:active{
     padding: 10px;
 }
 .content {
-    position: relative;
     font-family: "Segoe UI Light";
     grid-area: content;
     text-align: center;
@@ -137,21 +138,18 @@ a:active{
     text-align: center;
 }
 .search{
-    display: block;
     width: 100%;
     margin-right: 10%;
+    margin-bottom: 15%;
 }
 #searchLine{
-    display: inline;
-    margin-top: 5%;
-    width: 90%;
     border-radius: 10px;
     background-color: #DCC2E0;
     font-family: "Segoe UI Light";
     color: #502c56;
     border: none;
     padding: 10px;
-    margin-bottom: 20%;
+    width: 100%;
 }
 #searchBtn{
     display: inline;
@@ -216,11 +214,6 @@ p{
     width: 100%;
     height: 320px;
     margin-left: 15%;
-}
-.contactText{
-    margin-left: 40%;
-    margin-top: 15%;
-    font-size: large;
 }
 #Category{
     margin: 10px;

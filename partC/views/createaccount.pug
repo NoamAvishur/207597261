@@ -1,0 +1,25 @@
+extends layout
+block content
+    div.content
+        h1#createHeadline יצירת משתמש
+        div.createAccount
+                form(action="/CreateUser" ,method="get", id="block",class="my-form")
+                    div.msg
+                    div.form
+                        input(type="text", name="firstName", id="firstName", required)
+                        label(for="firstName") :*שם פרטי
+                        br
+                    div.form
+                        input(type="text", name="lastName", id="lastName", required)
+                        label(for="lastName") :*שם משפחה
+                        br
+                    div.form
+                        input(type="email", name="email", id="email", required)
+                        label(for="email") :*כתובת מייל
+                        br
+                    div.form
+                        input(type="password", name="password", id="password", required)
+                        label(for="password") :*סיסמה
+                        br 
+                    input(type="submit" class="btn" id="submitAccount" value="צור משתמש" name="")
+             

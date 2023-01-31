@@ -28,7 +28,12 @@ app.get('/home', (req, res)=>{
 app.get('/contact', (req, res)=>{
     res.render('contact');
 });
-
+app.get('/createaccount', (req, res)=>{
+    res.render('createaccount');
+});
+app.get('/seller', (req, res)=>{
+    res.render('seller');
+});
 app.get('/about', (req, res)=>{
     res.render('about',{
         V1:'אודותינו',

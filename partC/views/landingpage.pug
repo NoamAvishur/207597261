@@ -27,14 +27,13 @@ html(lang="en")
                       form(action="/Connect" ,method="get", id="block", class="my-form")
                               div.msg
                               div.formLand
-                                input(type='email', name='email', id='email')
+                                input(type='email', name='email', id='email',required)
                                 label :אימייל 
                               div.formLand
-                                input(type='password', name='password', id='password')
+                                input(type='password', name='password', id='password',required)
                                 label :סיסמא
                               input#searchbtn.btn(type='submit' value='התחבר' name='')
                       tr
-                      a.linkLand(href='http://localhost:3000/createAccount') צור משתמש חדש
-        footer
-            div.footer 
+                      a.linkLand(href='http://localhost:3000/createaccount') צור משתמש חדש
+        div.footer 
                 h4  Noam Avishur - Web BGU&copy; 2023 

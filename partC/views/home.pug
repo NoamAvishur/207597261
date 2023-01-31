@@ -3,8 +3,8 @@ block content
     h1 חפש מוצר או שירות
     tr 
         div.search    
-            form(action="/SearchProduct", method="get",id="block", class="my-form")
-            div.msg 
-            input(type="submit", class="btn" ,value="חפש" ,name="searchBtn" ,id="searchBtn") 
-            div.form
-                input(type="search", name="search", class="searchLine", placeholder="...הזן את החיפוש שלך כאן")
+            form(action="/SearchProduct", method="get" class="my-form")
+                div.msg 
+                input(type="submit", class="btn" ,value="חפש" ,name="searchBtn" ,id="searchBtn") 
+                div.form
+                    input(type="search", name="search", class="searchLine", placeholder="...הזן את החיפוש שלך כאן", required)
