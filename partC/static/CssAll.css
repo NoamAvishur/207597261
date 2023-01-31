@@ -22,7 +22,6 @@ li{
 }
 nav{
     text-align: center;
-    margin: 5%;
     font-family: "Segoe UI Semibold";
 }
 a{
@@ -36,7 +35,7 @@ a:hover{
 a:active{
     color: darkgrey;
 }
-#header{
+.header{
     grid-area: header;
 }
 #createHeadline{
@@ -59,7 +58,7 @@ a:active{
     width: 120px;
     height: 70px;
 }
-#userHeader{
+.userHeader{
     float: right;
     padding: 10px;
 }
@@ -114,14 +113,14 @@ a:active{
     text-align: right;
 }
 .form input[type='text']:focus{
-text-align:left;
+    text-align:left;
 }
 .form label{
     padding: 8px;
     font-family: "Segoe UI Light";
 }
 
-#footer{
+.footer{
     grid-area: footer;
     color: #502c56;
     font-family: "Segoe UI Light";
@@ -134,16 +133,18 @@ text-align:left;
     padding: 3px;
     margin: 3px;
 }
-#headline{
+.headline{
     text-align: center;
 }
 .search{
-    margin-right: 30%;
+    display: block;
+    width: 100%;
+    margin-right: 10%;
 }
 #searchLine{
     display: inline;
     margin-top: 5%;
-    width: 45%;
+    width: 90%;
     border-radius: 10px;
     background-color: #DCC2E0;
     font-family: "Segoe UI Light";
@@ -189,6 +190,8 @@ p{
     color: #502c56;
     text-align: center;
     margin-bottom: 5%;
+    margin-top: 5%;
+
 }
 .center {
     font-family: "Segoe UI Light";
@@ -196,6 +199,8 @@ p{
     width: 20%;
     box-sizing: border-box;
     color: #502c56;
+    margin-top: 5%;
+
 }
 .right{
     font-family: "Segoe UI Light";
@@ -204,13 +209,15 @@ p{
     box-sizing: border-box;
     color: #502c56;
     margin-bottom: 5%;
+    margin-top: 5%;
+
 }
-#contact{
+.contact{
     width: 100%;
     height: 320px;
     margin-left: 15%;
 }
-#contactText{
+.contactText{
     margin-left: 40%;
     margin-top: 15%;
     font-size: large;
@@ -347,12 +354,14 @@ p{
     width: 60%;
 }
 .linkLand{
-    margin-right: 15%;
+    margin-top: 2%;
+    margin-right: 25%;
     font-weight: bold;
     float: right;
     color: #502c56;
 }
-#headlineLand{
+h1{
+    text-align: center;
     margin-top: 5%;
     margin-bottom: 5%;
     font-family: "Segoe UI Semibold";
