@@ -1,62 +1,53 @@
 extends layout
-script(src='Product.js', defer) 
 block content
+        script(src='js/Product.js', defer) 
         div.content
             h1#createHeadline יצירת פרופיל למוצר או שירות
             br
             div.createProduct
-                form(action="", method="get", id="block",class="my-form" )
-                    <div class="left">
-                        <div class="form">
-                            <input type="image" name="image" id="Image" placeholder="הוסף תמונה">
-                        </div>
-                        <br>
-                        <div class="form">
-                            <label>מחיר*:</label>
-                            <input type="number" min="0" max="10000" name="price" id="Price",required>
-                            <label>ש"ח</label>
-                        </div>
-                        <br>
-                        <div class="form">
-                            <input type="tel" name="phone" id="Phone",required>
-                            <label>:*טלפון </label>
-                        </div>
-                        <br>
-                        <div class="form">
-                            <input type="text" name="address" id="Address",required>
-                            <label>:*כתובת </label>
-                        </div>
-                        <br>
-                        <input type="submit" class="btn" value="צור פרופיל" name="">
-                    </div>
-                    <div class="right">
-                      <div class="msg"></div>
-                      <div class="form">
-                          <input type="text" name="productName" id="Name",required>
-                          <label>:*שם </label>
-                      </div>
-                      <br>
-                      <div class="form">
-                          <label>סוג:</label>
-                          <input type="radio" id="product" name="productType" value="product">
-                          <label for="product">מוצר</label>
-                          <input type="radio" id="service" name="productType" value="service">
-                          <label for="service">שירות</label>
-                      </div>
-                      <br>
-                      <div class="form">
-                          <select type="text" name="category" id="Category",required>
-                            <option value="" disabled selected>בחר תת קטגוריה</option>
-                            <option value="clothing">ביגוד</option>
-                            <option value="Decor">עיצוב הבית</option>
-                            <option value="moving">הובלות</option>
-                            <option value="plumbing">אינסטלציה</option>
-                            <option value="fix">תיקונים</option>
-                            <option value="other">אחר</option>
-                          </select>
-                          <label>:*תת קטגוריה </label>
-                      </div>
-                      <br>
-                      <div class="form">
-                          <input type="text" name="description" id="Description">
-                          <label>:תיאור </label>
+                form(action="/insertNewProduct", method="post", id="block",class="my-form")
+                    div.left
+                        div.form
+                            input(type="image", name="image", id="Image", placeholder="הוסף תמונה")
+                        br
+                        div.form
+                            label(for="price") מחיר*:
+                            input(type="number", min="0", max="10000", name="price", id="Price",required)
+                            label(for="price") ש"ח
+                        br
+                        div.form
+                            input(type="email" name="email" id="email",required)
+                            label(for="email"):*אימייל
+                        br
+                        div.form
+                            input(type="text" name="address" id="Address",required)
+                            label(for="address"):*כתובת
+                        br
+                        input(type="submit", class="btn", value="צור פרופיל")
+                    div.right
+                        div.msg
+                        div.form
+                            input(type="text" name="productName" id="Name",required)
+                            label(for="productName"):*שם 
+                        br
+                        div.form
+                            label(for="productType") סוג:
+                            input(type="radio", id="product", name="productType", value="product")
+                            label(for="product") מוצר
+                            input(type="radio", id="service", name="productType", value="service")
+                            label(for="service") שירות
+                        br
+                        div.form
+                            select(type="text", name="category", id="Category",required)
+                                option(value="", disabled selected) בחר תת קטגוריה
+                                option(value="clothing") ביגוד
+                                option(value="Decor") עיצוב הבית
+                                option(value="moving") הובלות
+                                option(value="plumbing") אינסטלציה
+                                option(value="fix") תיקונים 
+                                option(value="other") אחר
+                            label(for="category"):*תת קטגוריה 
+                        br
+                        div.form
+                            input(type="text", name="description", id="Description")
+                            label(for="description") :תיאור

@@ -1,10 +1,10 @@
 extends layout
-script(src='CreateAccount.js', defer) 
 block content
+    script(src='js/CreateAccount.js', defer) 
     div.content
         h1#createHeadline יצירת משתמש
         div.createAccount
-                form(action="/CreateUser" ,method="get", id="block",class="my-form")
+                form(action="/insertNewSignIN" ,method="post", id="block",class="my-form")
                     div.msg
                     div.form
                         input(type="text", name="firstName", id="firstName", required)
@@ -22,5 +22,5 @@ block content
                         input(type="password", name="password", id="password", required)
                         label(for="password") :*סיסמה
                         br 
-                    input(type="submit" class="btn" id="submitAccount" value="צור משתמש" name="")
+                    input(type="submit", class="btn", id="submitAccount", value="צור משתמש")
              

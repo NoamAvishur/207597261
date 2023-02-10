@@ -1,6 +1,7 @@
 extends layout
 block content
-            <br>
-            <div id="back">
-            <a href="../views/Results.html">חזרה לתוצאות החיפוש</a>
-            <img src="../static/back.png" class="backPic">
+            script(src='js/All.js', defer)
+            br
+            div#back
+            a(href="http://localhost:3000/resaults") חזרה לתוצאות החיפוש
+            img.backPic(src="media/back.png")

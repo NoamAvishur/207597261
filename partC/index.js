@@ -8,7 +8,7 @@ const CRUD = require('./db/CRUD');
 const port = 3000;
 const fs = require('fs');
 const stringify = require('csv-stringify').stringify;
-const { parse } = require("csv-parse");
+const { parse } = require('csv-parse');
 const CSVToJSON = require('csvtojson');// DAY 12 MANAGE CONTENT
 
 const app = express();

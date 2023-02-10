@@ -1,21 +1,34 @@
 extends layout
-script(src='Results.js', defer) 
 block content
-
-    <div class="content">
-        <div class="results">
-            <h1>תוצאות החיפוש</h1>
-            <br>
-            <form  class="my-form" action="" method="get" id="block">
-                <div class="msg"></div>
-                <input type="submit" class="btn" value="חפש" name="" id="searchBtn">
-                <div class="form">
-                    <input type="search" name="search" id="resultLine" placeholder="מה שהמשתמש חיפש">
-                </div>
-            </form>
-            <div id="resultsList">
-             
-            <div class="sidebar">
+    script(src='js/Results.js', defer) 
+    div.content
+        div.results
+            h1 תוצאות החיפוש
+            br
+            form(class="my-form", action="/findProduct", method="get", id="block")
+                input(type="submit" class="btn" value="חפש" name="" id="searchBtn")
+                div.form
+                    input(type="search" name="search" id="resultLine" placeholder="מה שהמשתמש חיפש")
+            div#resultsList
+             table
+                tr 
+                    th כתובת
+                    th אימייל
+                    th מחיר
+                    th תמונה
+                    th תיאור
+                    th קטגוריה
+                    th סוג
+                    th שם                    
+                each n in v2
+                    tr 
+    //                    td
+                            button(onclick="okmsg()" type="reserve" class="tbl") שריין
+                        td 
+                            a(href= n.location class="tbl") נווט
+                        td= n.building 
+                        td= n.class 
+   //         <div class="sidebar">
                 <h4>סינון לפי</h4>
                 <h5>סוג</h5>
                 <ul>
