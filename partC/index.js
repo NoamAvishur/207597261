@@ -20,21 +20,34 @@ app.use(express.static(path.join(__dirname,'static')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.get('/show_all_customers', CRUD.showAll); // 11 B
+//createDB
+//users
+app.get('/CreateTableUsers',CreateDB.CreateTableUsers);
+app.get('/InsertDataUsers', CreateDB.InsertDataUsers);
+app.get('/ShowTableUsers', CreateDB.ShowTableUsers);
+app.get('/DropTableUsers', CreateDB.DropTableUsers);
+//products
+app.get('/CreateTableProducts',CreateDB.CreateTableProducts);
+app.get('/InsertDataProducts', CreateDB.InsertDataProducts);
+app.get('/ShowTableProducts', CreateDB.ShowTableProducts);
+app.get('/DropTableProducts', CreateDB.DropTableProducts);
 
-app.get('/CreateTable',CreateDB.CreateTable);
+//cruds
+//users
+app.get('/insertNewSignIN', CRUD.insertNewSignIN);
+app.get('/showAllUsers', CRUD.showAllUsers);
+app.get('/findUser', CRUD.findUser);
+//products
+app.get('/insertNewProduct', CRUD.insertNewProduct);
+app.get('/showAllProducts', CRUD.showAllProducts);
+app.get('/findProduct', CRUD.findProduct);
 
-app.get("/InsertData", CreateDB.InsertData);
-
-app.get('/ShowTable', CreateDB.ShowTable);
-
-app.get('/DropTable', CreateDB.DropTable);
-
-app.get('/signedUp', (req,res)=>{
-    let userNameCookie = req.cookies.Signed_user;
-    console.log(userNameCookie);
-    res.render('welcome', {v1: userNameCookie});
-});
+//routes
+//app.get('/signedUp', (req,res)=>{
+    //let userNameCookie = req.cookies.Signed_user;
+    //console.log(userNameCookie);
+    //res.render('welcome', {v1: userNameCookie});
+//});
 
 app.get('/', (req, res)=>{
     res.redirect('/landingPage');
