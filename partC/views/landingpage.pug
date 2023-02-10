@@ -24,15 +24,16 @@ html(lang="en")
                       img(src='media/line.png')
               div.right
                       h3 באתי למכור
-                      form(action="/Connect" ,method="get", id="block", class="my-form")
+                      form(action="/findUser" ,method="get", id="block", class="my-form")
                               div.msg
+                                h6 #{v3}
                               div.formLand
                                 input(type='email', name='email', id='email',required)
                                 label :אימייל 
                               div.formLand
                                 input(type='password', name='password', id='password',required)
                                 label :סיסמא
-                              input#searchbtn.btn(type='submit' value='התחבר' name='')
+                              input#searchbtn.btn(type='submit', value='התחבר')
                       tr
                       a.linkLand(href='http://localhost:3000/createaccount') צור משתמש חדש
         div.footer 

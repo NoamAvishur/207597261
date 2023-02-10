@@ -18,7 +18,7 @@ const insertNewSignIN = (req,res)=>{
     sql.query(Q1, NewSignUp, (err, mysqlres) =>{
         if (err) {
             console.log("error: error: ", err);
-            res.status(400).send({message:"couild not sign in"});
+            res.status(400).send({message:"could not sign in"});
             return;
         }
         console.log("created customer: ", {id: mysqlres.insertid});
@@ -51,16 +51,23 @@ const findUser = (req,res)=>{
         res.status(400).send({message: "please fill user name to search"});
         return;    }
     // pull data from body
-    const user = req.body.SearchName;
-
+    const user = [req.body.email, req.body.password];
     // run query
-    const Q3 = "SELECT * FROM users where name like ?";
+    const Q3 = "SELECT * FROM Students WHERE email=? and password=?";
     sql.query(Q3, user + "%", (err, mysqlres)=>{
         if (err) {
             console.log("error: error: ", err);
             res.status(400).send({message:"could not search customer"});
             return;
         }
+        if (results.length == 0){
+            console.log("error: error: ", err);
+            res.render('landingpage',{v3: "אימייל או סיסמה לא תקינים"});
+            return;
+        }
+        res.cookie("sellerName", results[0].firstName);
+        res.cookie("sellerEmail", results[0].email);
+        res.redirect('/seller');
         console.log("found user: ", mysqlres);
         res.send(mysqlres);
         return;

@@ -85,7 +85,9 @@ app.get('/createaccount', (req, res)=>{
 });
 
 app.get('/seller', (req, res)=>{// DAY 12 MANAGE CONTENT
-    res.render('seller');
+    let userNameCookie = req.cookies.sellerName;
+    let userEmailCookie = req.cookies.sellerEmail;
+    res.render('seller', {v4:userNameCookie});
 });
 
 app.get('/createproduct', (req, res)=>{
