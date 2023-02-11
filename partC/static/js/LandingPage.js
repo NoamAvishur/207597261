@@ -11,14 +11,9 @@ const onSubmit = (e) => {//check input
         //msg.classList.add('error')
     } else {
         console.log('success')
-        const li = document.createElement('li')
-        li.innerHTML = `${passwordInput.value}: ${emailInput.value}`
-        // clean fields
-        passwordInput.value = ''
-        emailInput.value = ''
-        //msg.innerHTML = ''
-        //msg.classList.remove('error')
-        window.location.href="http://localhost:3000/seller"
+        //const li = document.createElement('li')
+        //li.innerHTML = `${passwordInput.value}: ${emailInput.value}`
+        //window.location.href="http://localhost:3000/seller"
     }
 }
 myForm.addEventListener('submit', onSubmit)

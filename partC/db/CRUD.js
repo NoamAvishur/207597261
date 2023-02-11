@@ -48,28 +48,29 @@ const showAllUsers = (req,res)=>{
 const findUser = (req,res)=>{
     // validate body exists
     if (!req.body) {
-        res.status(400).send({message: "please fill user name to search"});
-        return;    }
+        res.status(400).send({message: "please fill in the email and password"});
+        return;    
+    }
     // pull data from body
-    const user = [req.body.email, req.body.password];
+    const email = req.body.email;
+    const password = req.body.password;
+    console.log(email,password)
     // run query
-    const Q3 = "SELECT * FROM Students WHERE email=? and password=?";
-    sql.query(Q3, user + "%", (err, mysqlres)=>{
+    const Q3 = "SELECT * FROM users WHERE email=? AND password=?"
+    sql.query(Q3, [email,password], (err, mysqlres)=>{
         if (err) {
             console.log("error: error: ", err);
-            res.status(400).send({message:"could not search customer"});
+            res.status(400).send({message:"could not search user"});
             return;
         }
-        if (results.length == 0){
+        if (mysqlres.length == 0){
             console.log("error: error: ", err);
-            res.render('landingpage',{v3: "אימייל או סיסמה לא תקינים"});
+            res.render('landingpage',{v3: "email or password not valid"});
             return;
         }
-        res.cookie("sellerName", results[0].firstName);
-        res.cookie("sellerEmail", results[0].email);
-        res.redirect('/seller');
-        console.log("found user: ", mysqlres);
-        res.send(mysqlres);
+        res.cookie("sellerName", mysqlres[0].firstName);
+        res.cookie("sellerEmail", mysqlres[0].email);
+        res.redirect("/seller");
         return;
     })
 }

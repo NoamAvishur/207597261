@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const BodyParser = require('body-parser');
-//const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const sql = require('./db/db');
 const CreateDB = require('./db/CreateDB');
 const CRUD = require('./db/CRUD');
@@ -9,13 +9,13 @@ const port = 3000;
 const fs = require('fs');
 const stringify = require('csv-stringify').stringify;
 const { parse } = require('csv-parse');
-const CSVToJSON = require('csvtojson');// DAY 12 MANAGE CONTENT
+const CSVToJSON = require('csvtojson');
 
 const app = express();
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,'static')));
-//app.use(cookieParser());
+app.use(cookieParser());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -36,19 +36,13 @@ app.get('/DropTableProducts', CreateDB.DropTableProducts);
 //users
 app.get('/insertNewSignIN', CRUD.insertNewSignIN);
 app.get('/showAllUsers', CRUD.showAllUsers);
-app.get('/findUser', CRUD.findUser);
+app.post('/findUser', CRUD.findUser);
 //products
 app.get('/insertNewProduct', CRUD.insertNewProduct);
 app.get('/showAllProducts', CRUD.showAllProducts);
 app.get('/findProduct', CRUD.findProduct);
 
 //routes
-//app.get('/signedUp', (req,res)=>{
-    //let userNameCookie = req.cookies.Signed_user;
-    //console.log(userNameCookie);
-    //res.render('welcome', {v1: userNameCookie});
-//});
-
 app.get('/', (req, res)=>{
     res.redirect('/landingPage');
 });
@@ -61,11 +55,11 @@ app.get('/home', (req, res)=>{
     res.render('home');
 });
 
-app.get('/results', (req, res)=>{// DAY 12 MANAGE CONTENT
+app.get('/results', (req, res)=>{
     res.render('results');
 });
 
-app.get('/product', (req, res)=>{// DAY 12 MANAGE CONTENT
+app.get('/product', (req, res)=>{
     res.render('product');
 });
 
@@ -84,9 +78,9 @@ app.get('/createaccount', (req, res)=>{
     res.render('createaccount');
 });
 
-app.get('/seller', (req, res)=>{// DAY 12 MANAGE CONTENT
+app.get('/seller', (req, res)=>{
     let userNameCookie = req.cookies.sellerName;
-    let userEmailCookie = req.cookies.sellerEmail;
+    //let userEmailCookie = req.cookies.sellerEmail;
     res.render('seller', {v4:userNameCookie});
 });
 

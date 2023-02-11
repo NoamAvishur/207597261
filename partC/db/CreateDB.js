@@ -25,10 +25,10 @@ const InsertDataUsers = (req,res)=>{
     console.log(jsonObj);
     jsonObj.forEach(element => {
         var NewEntry = {
-            "firstName": req.body.firstName,
-            "lastName": req.body.lastName,
-            "email": req.body.email,
-            "password": req.body.password
+            "firstName": element.firstName,
+            "lastName": element.lastName,
+            "email": element.email,
+            "password": element.password
         }
         SQL.query(Q2, NewEntry, (err,mysqlres)=>{
             if (err) {
@@ -42,7 +42,6 @@ const InsertDataUsers = (req,res)=>{
     res.send("data inserted");
 
 };
-
 const ShowTableUsers = (req,res)=>{
     var Q3 = "SELECT * FROM users";
     SQL.query(Q3, (err, mySQLres)=>{
@@ -52,7 +51,7 @@ const ShowTableUsers = (req,res)=>{
             return;
         }
         console.log("showing table");
-        res.send("/InsertData");
+        res.send(mySQLres);
         return;
     })};
 
@@ -93,14 +92,14 @@ const InsertDataProducts = (req,res)=>{
     console.log(jsonObj);
     jsonObj.forEach(element => {
         var NewEntry = {
-            "productName": req.body.productName,
-            "productType": req.body.productType,
-            "category": req.body.category,
-            "description": req.body.description,
-            "image": req.body.image,
-            "price": req.body.price,
-            "email": req.body.email,
-            "address":req.body.address
+            "productName": element.productName,
+            "productType": element.productType,
+            "category": element.category,
+            "description": element.description,
+            "image": element.image,
+            "price": element.price,
+            "email": element.email,
+            "address":element.address
         }
         SQL.query(Q6, NewEntry, (err,mysqlres)=>{
             if (err) {
@@ -124,7 +123,7 @@ const ShowTableProducts = (req,res)=>{
             return;
         }
         console.log("showing table");
-        res.send("/InsertData");
+        res.send(mySQLres);
         return;
     })};
 
