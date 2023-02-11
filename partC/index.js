@@ -9,7 +9,7 @@ const port = 3000;
 const fs = require('fs');
 const stringify = require('csv-stringify').stringify;
 const { parse } = require('csv-parse');
-const CSVToJSON = require('csvtojson');
+const csv = require('csvtojson');
 
 const app = express();
 app.use(BodyParser.json());
@@ -25,16 +25,15 @@ app.set('view engine', 'pug');
 app.get('/CreateTableUsers',CreateDB.CreateTableUsers);
 app.get('/InsertDataUsers', CreateDB.InsertDataUsers);
 app.get('/ShowTableUsers', CreateDB.ShowTableUsers);
-app.get('/DropTableUsers', CreateDB.DropTableUsers);
+//app.get('/DropTableUsers', CreateDB.DropTableUsers);
 //products
 app.get('/CreateTableProducts',CreateDB.CreateTableProducts);
 app.get('/InsertDataProducts', CreateDB.InsertDataProducts);
 app.get('/ShowTableProducts', CreateDB.ShowTableProducts);
-app.get('/DropTableProducts', CreateDB.DropTableProducts);
+app.get('/DropTables', CreateDB.DropTables);
 
-//cruds
 //users
-app.get('/insertNewSignIN', CRUD.insertNewSignIN);
+app.post('/insertNewSignIN', CRUD.insertNewSignIN);
 app.get('/showAllUsers', CRUD.showAllUsers);
 app.post('/findUser', CRUD.findUser);
 //products
@@ -64,12 +63,16 @@ app.get('/product', (req, res)=>{
 });
 
 app.get('/about', (req, res)=>{
-    res.render('about',{
-        V1:'אודותינו',
-        V2:''
-    });
+    const csvPath = path.join(__dirname,"./content/about.csv");
+    csv().fromFile(csvPath).then((jsonObj)=>{
+        console.log(jsonObj);
+        //res.send("jason object created");
+        res.render('about', {
+            var1: jsonObj
+        })
+    })
 });
-
+ 
 app.get('/contact', (req, res)=>{
     res.render('contact');
 });

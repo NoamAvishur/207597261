@@ -137,20 +137,33 @@ a:active{
 .headline{
     text-align: center;
 }
-.search{
-    width: 100%;
-    margin-right: 10%;
-    margin-bottom: 15%;
-}
+
 #searchLine{
+    display: inline;
+    margin-top: 5%;
     border-radius: 10px;
     background-color: #DCC2E0;
     font-family: "Segoe UI Light";
     color: #502c56;
     border: none;
     padding: 10px;
+    margin-bottom: 20%;
     width: 100%;
 }
+.search{
+    width: 100%;
+    margin-right: 10%;
+    margin-bottom: 15%;
+}
+        /*#searchLine{
+            border-radius: 10px;
+            background-color: #DCC2E0;
+            font-family: "Segoe UI Light";
+            color: #502c56;
+            border: none;
+            padding: 10px;
+            width: 100%;
+        }*/
 #searchBtn{
     display: inline;
     margin-left: 35%;
@@ -172,13 +185,17 @@ a:active{
 	}
 }
 
-p{
+span{
     width: 45%;
     text-align: center;
-    margin-left: 27%;
     margin-bottom: 5%;
+    font-family: "Segoe UI Light";
 }
-
+.about{
+    margin-left: 27%;
+    text-align: center;
+    width: 45%;
+}
 .left{
     font-family: "Segoe UI Light";
     float: left;
@@ -214,6 +231,10 @@ p{
     width: 100%;
     height: 320px;
     margin-left: 15%;
+}
+#contactText{
+    margin-top: 15%;
+    font-size: large;
 }
 #Category{
     margin: 10px;
@@ -356,6 +377,5 @@ p{
 h1{
     text-align: center;
     margin-top: 5%;
-    margin-bottom: 5%;
     font-family: "Segoe UI Semibold";
 }

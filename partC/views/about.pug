@@ -1,7 +1,10 @@
 extends layout
 block content
   script(src='js/All.js', defer)
-  h1  #{V1}
-  br
-  p #{V2}
+  h1  אודותינו
+  ul
+    each val in var1
+        li
+        div.about 
+            span= val.content
   br

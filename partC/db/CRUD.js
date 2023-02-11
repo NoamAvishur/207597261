@@ -14,18 +14,33 @@ const insertNewSignIN = (req,res)=>{
         "password": req.body.password
     }
     // run qury
-    const Q1 = 'INSERT INTO users SET ?';
-    sql.query(Q1, NewSignUp, (err, mysqlres) =>{
-        if (err) {
-            console.log("error: error: ", err);
-            res.status(400).send({message:"could not sign in"});
-            return;
-        }
-        console.log("created customer: ", {id: mysqlres.insertid});
-        res.send({message: "you just signed in successfuly"});
-        return;
-    })
+    console.log(NewSignUp);
+    const Q1 = "SELECT * FROM users WHERE email =?"
+        sql.query(Q1, req.body.email, (err, mysqlres) =>{
+            if (err) {
+                console.log("error: error: ", err);
+                res.status(400).send({message:"could not sign in"});
+                return;
+            }if (mysqlres.length != 0){
+                console.log("error: error: ", err);
+                res.render('createaccount',{v2: "קיים משתמש עם מייל זהה"});
+                return;
+            }
+            const Q2 = 'INSERT INTO users SET ?';
+            sql.query(Q2, NewSignUp, (err, mysqlres) =>{
+                if (err) {
+                    console.log("error: error: ", err);
+                    res.status(400).send({message:"could not sign in"});
+                    return;
+                }
+                res.cookie("sellerName", req.body.firstName);
+                res.cookie("sellerEmail", req.body.email);
+                res.redirect('/seller');
+                return;
+            })
+        })
 };
+    
 
 const showAllUsers = (req,res)=>{
     const Q2 = "SELECT * from users";
@@ -54,7 +69,6 @@ const findUser = (req,res)=>{
     // pull data from body
     const email = req.body.email;
     const password = req.body.password;
-    console.log(email,password)
     // run query
     const Q3 = "SELECT * FROM users WHERE email=? AND password=?"
     sql.query(Q3, [email,password], (err, mysqlres)=>{

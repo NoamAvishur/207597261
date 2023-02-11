@@ -6,6 +6,7 @@ block content
         div.createAccount
                 form(action="/insertNewSignIN" ,method="post", id="block",class="my-form")
                     div.msg
+                    h4 #{v2}
                     div.form
                         input(type="text", name="firstName", id="firstName", required)
                         label(for="firstName") :*שם פרטי

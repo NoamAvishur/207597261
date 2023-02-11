@@ -140,4 +140,8 @@ const DropTableProducts = (req, res)=>{
         return;
     })
 }
-module.exports = {CreateTableUsers, InsertDataUsers, ShowTableUsers, DropTableUsers,CreateTableProducts,InsertDataProducts,ShowTableProducts,DropTableProducts};
+const DropTables= (req, res)=>{
+        DropTableUsers(req, res);
+        DropTableProducts (req, res);
+}
+module.exports = {CreateTableUsers, InsertDataUsers, ShowTableUsers, DropTables,CreateTableProducts,InsertDataProducts,ShowTableProducts};
