@@ -54,7 +54,9 @@ app.get('/home', (req, res)=>{
 });
 
 app.get('/results', (req, res)=>{
-    res.render('results');
+    let userSearch = req.cookies.search;
+    let userResults = req.cookies.results;
+    res.render('results', {v6:userResults, v7:userSearch});
 });
 
 app.get('/product', (req, res)=>{
@@ -83,7 +85,7 @@ app.get('/createaccount', (req, res)=>{
 app.get('/seller', (req, res)=>{
     let userNameCookie = req.cookies.sellerName;
     let userResults = req.cookies.results;
-    res.render('seller', {v4:userNameCookie, v6:userResults});
+    res.render('seller', {v4:userNameCookie, v5:userResults});
 });
 
 app.get('/createproduct', (req, res)=>{

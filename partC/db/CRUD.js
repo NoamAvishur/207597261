@@ -94,7 +94,8 @@ const findUser = (req,res)=>{
             }
             if (results.length == 0){
                 console.log("error: error: ", err);
-                res.redirect('seller',{v5: "אין מוצרים או שירותים"});
+                res.cookie("results", "");
+                res.redirect('/seller');
                 return;
             }
             res.cookie("results", results);
@@ -140,7 +141,8 @@ const insertNewProduct = (req,res)=>{
             }
             if (results.length == 0){
                 console.log("error: error: ", err);
-                res.redirect('seller',{v5: "אין מוצרים או שירותים"});
+                res.cookie("results", "");
+                res.redirect('/seller');
                 return;
             }
             res.cookie("results", results);
@@ -175,18 +177,19 @@ const findProduct = (req,res)=>{
         res.status(400).send({message: "please fill the search"});
         return;    }
     // pull data from body
-    const user = req.body.SearchName;
+    const userSearch = req.body.search;
 
     // run query
-    const Q8 = "SELECT * FROM products where name like ?";
-    sql.query(Q8, user + "%", (err, mysqlres)=>{
+    const Q8 = "SELECT * FROM products where productName like ?";
+    sql.query(Q8, ['%' + userSearch + '%'], (err, mysqlres)=>{
         if (err) {
             console.log("error: error: ", err);
             res.status(400).send({message:"could not search product"});
             return;
         }
-        console.log("found products: ", mysqlres);
-        res.send(mysqlres);
+        res.cookie("results", mysqlres);
+        res.cookie("search", userSearch);
+        res.redirect("/results");
         return;
     })
 }

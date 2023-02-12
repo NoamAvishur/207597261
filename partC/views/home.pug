@@ -4,7 +4,7 @@ block content
         h1 חפש מוצר או שירות
         br 
         div.search    
-                form(action="/findProduct", method="get", class="my-form", id="block") 
+                form(action="/findProduct", method="post", class="my-form", id="block") 
                     input(type="submit", class="btn" ,value="חפש" ,name="searchBtn" ,id="searchBtn") 
                     div.form
                         input(type="search", name="search", class="searchLine", placeholder="...הזן את החיפוש שלך כאן", required)

@@ -8,43 +8,25 @@ block content
             form(class="my-form", action="/findProduct", method="get", id="block")
                 input(type="submit" class="btn" value="חפש" name="" id="searchBtn")
                 div.form
-                    input(type="search" name="search" id="resultLine" placeholder="מה שהמשתמש חיפש")
-            div#resultsList
-             table
+                    input(type="search" name="search" id="resultLine" placeholder=v7)
+            table#classes
                 tr 
                     th כתובת
                     th אימייל
                     th מחיר
-                    th תמונה
                     th תיאור
                     th קטגוריה
                     th סוג
-                    th שם                    
-                each n in v2
+                    th שם 
+                    th תמונה
+                each n in v6  
                     tr 
-    //                    td
-                            button(onclick="okmsg()" type="reserve" class="tbl") שריין
-                        td 
-                            a(href= n.location class="tbl") נווט
-                        td= n.building 
-                        td= n.class 
-   //         <div class="sidebar">
-                <h4>סינון לפי</h4>
-                <h5>סוג</h5>
-                <ul>
-                    <li class="item">מוצר</li>
-                    <li class="item">שירות</li>
-                </ul>
-                <h5>תת קטגוריה</h5>
-                <ul>
-                    <li class="item">תת קטגוריה א</li>
-                    <li class="item">תת קטגוריה ב</li>
-                    <li class="item">תת קטגוריה ג</li>
-                </ul>
-                <h5>מחיר</h5>
-                עד ___ ש"ח
-            </div>
-        </div>
-        <br>
-        <h4 class="block">1  |  2  |  3  |  4  |  ...  |  15</h4>
-  
+                        td=n.address
+                        td=n.email
+                        td=n.price
+                        td=n.description
+                        td=n.category
+                        td=n.productType
+                        td=n.productName
+                        td
+                            img#logo(src=n.image) 
