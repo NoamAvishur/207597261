@@ -79,7 +79,8 @@ app.get('/contact', (req, res)=>{
 });
 
 app.get('/createaccount', (req, res)=>{
-    res.render('createaccount');
+    let userNameCookie = req.cookies.sellerName;
+    res.render('createaccount',{v9:userNameCookie});
 });
 
 app.get('/seller', (req, res)=>{

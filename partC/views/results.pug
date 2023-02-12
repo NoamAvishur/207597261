@@ -10,7 +10,7 @@ block content
                         input(type="search", name="search", id="resultLine", placeholder=v7, required)             
             h1 תוצאות החיפוש    
             tr 
-            table#classes
+            table#products
                 tr 
                     th כתובת
                     th אימייל
@@ -20,6 +20,7 @@ block content
                     th סוג
                     th שם 
                     th תמונה
+                    th מספר
                 each n in v6  
                     tr 
                         td=n.address
@@ -29,5 +30,6 @@ block content
                         td=n.category
                         td=n.productType
                         td=n.productName
-                        td
-                            img#logo(src=n.image) 
+                        td 
+                            img#logo(src=n.image)
+                        td=n.serial_num

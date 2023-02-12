@@ -141,9 +141,9 @@ const insertNewProduct = (req,res)=>{
                     res.status(400).send({message:"couild create product"});
                     return;
                 }
-                userEmail=req.body.email;
+                sellerEmail=req.cookies.sellerEmail;
                 const Q7="SELECT * FROM products WHERE email=?"
-                sql.query(Q7, userEmail, (err, results) =>{
+                sql.query(Q7, sellerEmail, (err, results) =>{
                     if (err) {
                         console.log("error: error: ", err);
                         res.status(400).send({message:"could not search products"});

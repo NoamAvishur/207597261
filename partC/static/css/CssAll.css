@@ -61,6 +61,7 @@ a:active{
     height: 70px;
 }
 .userHeader{
+    grid-area: header;
     float: right;
     padding: 10px;
 }
@@ -127,6 +128,7 @@ a:active{
     font-family: "Segoe UI Light";
     text-align: center;
     margin-bottom: 1%;
+    margin-top: 3%;
 }
 .error {
     font-weight: bold;
@@ -152,21 +154,12 @@ a:active{
 }
 .search{
     width: 100%;
-    margin-right: 10%;
+    margin-right: 50%;
     margin-bottom: 15%;
 }
-        /*#searchLine{
-            border-radius: 10px;
-            background-color: #DCC2E0;
-            font-family: "Segoe UI Light";
-            color: #502c56;
-            border: none;
-            padding: 10px;
-            width: 100%;
-        }*/
 #searchBtn{
     display: inline;
-    margin-left: 35%;
+    margin-left: 25%;
 }
 #searchBtn:hover{
 	background-size: 50vh;
@@ -188,7 +181,6 @@ a:active{
 span{
     width: 45%;
     text-align: center;
-    margin-bottom: 5%;
     font-family: "Segoe UI Light";
 }
 .about{
@@ -350,8 +342,6 @@ span{
 }
 #back{
     display: block;
-    margin-top: 24%;
-    margin-bottom: 3%;
 }
 .formLand{
     padding: 10px;
@@ -379,31 +369,40 @@ h1{
     margin-top: 5%;
     font-family: "Segoe UI Semibold";
 }
-#classes {
+#products {
     font-family: "Segoe UI light";
     border-collapse: collapse;
     width: 90%;
     margin-left: 5%;
     margin-top: 5%;
+
   }
-  #classes td, #customers th {
+  #products td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
   }
-  #classes tr{
+  #products tr{
       color: #502c56;
   }
-  #classes tr:nth-child(even){
+  #products tr:nth-child(even){
       background-color: #f2f2f2;
   }
-  #classes tr:hover {
+  #products tr:hover {
       background-color: #ddd;
   }
-  #classes th {
+  #products th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
     background-color: #CDA9D3;
     color: #502c56;
   }
+  input[type="search"] {
+    width: 35%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+}

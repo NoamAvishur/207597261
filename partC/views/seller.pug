@@ -5,7 +5,7 @@ block content
         h1#sellerHeadLine  ! #{v4} שלום
         br
         h2#sellerHeadLine המוצרים / השירותים שלך
-        table#classes
+        table#products
                 tr 
                     th 
                     th 
@@ -19,7 +19,7 @@ block content
                 each n in v5  
                     tr 
                         td
-                            a(href='http://localhost:3000/editproduct') מחק
+                            a(href='#', onclick='deleteRow(event)') מחק
                         td 
                             a(href='http://localhost:3000/editproduct') ערוך
                         td=n.price
