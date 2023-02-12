@@ -3,12 +3,13 @@ block content
     script(src='js/Results.js', defer) 
     div.content
         div.results
-            h1 תוצאות החיפוש
-            br
-            form(class="my-form", action="/findProduct", method="get", id="block")
-                input(type="submit" class="btn" value="חפש" name="" id="searchBtn")
-                div.form
-                    input(type="search" name="search" id="resultLine" placeholder=v7)
+            tr 
+            form(action="/findProduct", method="post", class="my-form", id="block") 
+                    input(type="submit", class="btn" ,value="חפש" ,name="searchBtn" ,id="searchBtn") 
+                    div.form
+                        input(type="search", name="search", id="resultLine", placeholder=v7, required)             
+            h1 תוצאות החיפוש    
+            tr 
             table#classes
                 tr 
                     th כתובת

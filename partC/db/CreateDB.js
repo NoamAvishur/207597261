@@ -69,7 +69,7 @@ const DropTableUsers = (req, res)=>{
 }
 
 const CreateTableProducts = (req,res)=> {
-    var Q5 = "CREATE TABLE products (productName VARCHAR(255),productType VARCHAR(255), category VARCHAR(255),description VARCHAR(5000),image VARCHAR(255),price float, email VARCHAR(255), address VARCHAR(255))";
+    var Q5 = "CREATE TABLE products (serial_num SMALLINT, productName VARCHAR(255),productType VARCHAR(255), category VARCHAR(255),description VARCHAR(5000),image VARCHAR(255),price float, email VARCHAR(255), address VARCHAR(255))";
     SQL.query(Q5,(err,mySQLres)=>{
         if (err) {
             console.log("error ", err);
@@ -91,6 +91,7 @@ const InsertDataProducts = (req,res)=>{
     console.log(jsonObj);
     jsonObj.forEach(element => {
         var NewEntry = {
+            "serial_num": element.serial_num,
             "productName": element.productName,
             "productType": element.productType,
             "category": element.category,

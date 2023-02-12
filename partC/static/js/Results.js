@@ -25,7 +25,6 @@ const onSubmit = (e) => {//check input
         const li = document.createElement('li')
         li.innerHTML = `${resultInput.value}`
         // clean fields
-        resultInput.value = ''
         //msg.innerHTML = ''
         //msg.classList.remove('error')
         window.location.href="http://localhost:3000/results"

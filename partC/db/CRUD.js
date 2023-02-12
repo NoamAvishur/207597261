@@ -107,49 +107,65 @@ const findUser = (req,res)=>{
 };
 
 const insertNewProduct = (req,res)=>{
+    var max_index=-1;
     // validate body exists
     if (!req.body) {
         res.status(400).send({message: "content cannot be empty"});
         return;
     }
-    // insert input data from body into json
-    const NewProduct = {
-            "productName": req.body.productName,
-            "productType": req.body.productType,
-            "category": req.body.category,
-            "description": req.body.description,
-            "image": req.body.image,
-            "price": req.body.price,
-            "email": req.body.email,
-            "address":req.body.address
-    }
-    const userEmail=req.body.email;
-    // run qury
-    const Q6 = 'INSERT INTO products SET ?';
-    sql.query(Q6, NewProduct, (err, mysqlres) =>{
+    const Q_get_max_serial = "SELECT MAX(serial_num) as max_num FROM products";
+    sql.query(Q_get_max_serial, (err, results) =>{
         if (err) {
-            console.log("error: error: ", err);
-            res.status(400).send({message:"couild create product"});
+            console.log("error: ", err);
+            res.status(400).send({message:"Couldn't get max serial number"});
             return;
         }
-        const Q7="SELECT * FROM products WHERE email=?"
-        sql.query(Q7, userEmail, (err, results) =>{
-            if (err) {
-                console.log("error: error: ", err);
-                res.status(400).send({message:"could not search products"});
-                return;
+        if(Number.isInteger(results[0].max_num)){
+            max_index=results[0].max_num+1;
+               // insert input data from body into json
+               const NewProduct = {
+                "serial_num": max_index,
+                "productName": req.body.productName,
+                "productType": req.body.productType,
+                "category": req.body.category,
+                "description": req.body.description,
+                "image": req.body.image,
+                "price": req.body.price,
+                "email": req.body.email,
+                "address":req.body.address
             }
-            if (results.length == 0){
-                console.log("error: error: ", err);
-                res.cookie("results", "");
-                res.redirect('/seller');
-                return;
-            }
-            res.cookie("results", results);
-            res.redirect("/seller");
-            return;
+            const Q6 = 'INSERT INTO products SET ?';
+            sql.query(Q6, NewProduct, (err, mysqlres) =>{
+                if (err) {
+                    console.log("error: error: ", err);
+                    res.status(400).send({message:"couild create product"});
+                    return;
+                }
+                userEmail=req.body.email;
+                const Q7="SELECT * FROM products WHERE email=?"
+                sql.query(Q7, userEmail, (err, results) =>{
+                    if (err) {
+                        console.log("error: error: ", err);
+                        res.status(400).send({message:"could not search products"});
+                        return;
+                    }
+                    if (results.length == 0){
+                        console.log("error: error: ", err);
+                        res.cookie("results", "");
+                        res.redirect('/seller');
+                        return;
+                    }
+                    res.cookie("results", results);
+                    res.redirect("/seller");
+                    return;
 
-        });
+                });
+            })
+        }
+        else{ 
+            res.status(400).send({message:"Invalid max serial number"});
+            return;
+        }
     })
 };
 
