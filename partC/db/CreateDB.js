@@ -64,7 +64,6 @@ const DropTableUsers = (req, res)=>{
             return;
         }
         console.log("table drpped");
-        res.send("table drpped");
         return;
     })
 }
@@ -109,9 +108,7 @@ const InsertDataProducts = (req,res)=>{
         });
     });
     });
-    
     res.send("data inserted");
-
 };
 
 const ShowTableProducts = (req,res)=>{
@@ -136,12 +133,14 @@ const DropTableProducts = (req, res)=>{
             return;
         }
         console.log("table drpped");
-        res.send("table drpped");
         return;
     })
 }
 const DropTables= (req, res)=>{
         DropTableUsers(req, res);
         DropTableProducts (req, res);
+        console.log("all tables dropped");
+        res.send("all tables dropped");
+        return;
 }
 module.exports = {CreateTableUsers, InsertDataUsers, ShowTableUsers, DropTables,CreateTableProducts,InsertDataProducts,ShowTableProducts};

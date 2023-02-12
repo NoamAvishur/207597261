@@ -3,4 +3,28 @@ block content
     script(src='js/All.js', defer)
     div.content
         h1#sellerHeadLine  ! #{v4} שלום
+        br
         h2#sellerHeadLine המוצרים / השירותים שלך
+        p #{v5}
+        table#classes
+                tr 
+                    th 
+                    th 
+                    th מחיר
+                    th תיאור
+                    th קטגוריה
+                    th סוג
+                    th שם 
+                    th תמונה
+                each n in v6 
+                    tr 
+                        td
+                            a(href='http://localhost:3000/editproduct') מחק
+                        td 
+                            a(href='http://localhost:3000/editproduct') ערוך
+                        td=n.price
+                        td=n.description
+                        td=n.category
+                        td=n.productType
+                        td=n.productName
+                        td=n.image

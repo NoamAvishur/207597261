@@ -35,7 +35,7 @@ const insertNewSignIN = (req,res)=>{
                 }
                 res.cookie("sellerName", req.body.firstName);
                 res.cookie("sellerEmail", req.body.email);
-                res.redirect('/seller');
+                res.redirect('/seller', {v5:"אין מוצרים או שירותים"});
                 return;
             })
         })
@@ -43,8 +43,8 @@ const insertNewSignIN = (req,res)=>{
     
 
 const showAllUsers = (req,res)=>{
-    const Q2 = "SELECT * from users";
-    sql.query(Q2, (err, mysqlres)=>{
+    const Q3 = "SELECT * from users";
+    sql.query(Q3, (err, mysqlres)=>{
         if (err) {
             res.status(400).send("error");
             return;
@@ -70,8 +70,8 @@ const findUser = (req,res)=>{
     const email = req.body.email;
     const password = req.body.password;
     // run query
-    const Q3 = "SELECT * FROM users WHERE email=? AND password=?"
-    sql.query(Q3, [email,password], (err, mysqlres)=>{
+    const Q4 = "SELECT * FROM users WHERE email=? AND password=?"
+    sql.query(Q4, [email,password], (err, mysqlres)=>{
         if (err) {
             console.log("error: error: ", err);
             res.status(400).send({message:"could not search user"});
@@ -84,10 +84,27 @@ const findUser = (req,res)=>{
         }
         res.cookie("sellerName", mysqlres[0].firstName);
         res.cookie("sellerEmail", mysqlres[0].email);
-        res.redirect("/seller");
-        return;
-    })
-}
+        const userEmail=mysqlres[0].email;
+        const Q5="SELECT * FROM products WHERE email=?"
+        sql.query(Q5, userEmail, (err, results) =>{
+            if (err) {
+                console.log("error: error: ", err);
+                res.status(400).send({message:"could not search products"});
+                return;
+            }
+            if (results.length == 0){
+                console.log("error: error: ", err);
+                res.redirect('seller',{v5: "אין מוצרים או שירותים"});
+                return;
+            }
+            res.cookie("results", results);
+            res.redirect("/seller");
+            return;
+
+        });
+    });
+};
+
 const insertNewProduct = (req,res)=>{
     // validate body exists
     if (!req.body) {
@@ -106,8 +123,8 @@ const insertNewProduct = (req,res)=>{
             "address":req.body.address
     }
     // run qury
-    const Q4 = 'INSERT INTO products SET ?';
-    sql.query(Q4, NewProduct, (err, mysqlres) =>{
+    const Q6 = 'INSERT INTO products SET ?';
+    sql.query(Q6, NewProduct, (err, mysqlres) =>{
         if (err) {
             console.log("error: error: ", err);
             res.status(400).send({message:"couild create product"});
@@ -120,8 +137,8 @@ const insertNewProduct = (req,res)=>{
 };
 
 const showAllProducts = (req,res)=>{
-    const Q5 = "SELECT * from products";
-    sql.query(Q5, (err, mysqlres)=>{
+    const Q7 = "SELECT * from products";
+    sql.query(Q7, (err, mysqlres)=>{
         if (err) {
             res.status(400).send("error");
             return;
@@ -146,8 +163,8 @@ const findProduct = (req,res)=>{
     const user = req.body.SearchName;
 
     // run query
-    const Q6 = "SELECT * FROM products where name like ?";
-    sql.query(Q6, user + "%", (err, mysqlres)=>{
+    const Q8 = "SELECT * FROM products where name like ?";
+    sql.query(Q8, user + "%", (err, mysqlres)=>{
         if (err) {
             console.log("error: error: ", err);
             res.status(400).send({message:"could not search product"});

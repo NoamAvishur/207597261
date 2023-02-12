@@ -25,7 +25,6 @@ app.set('view engine', 'pug');
 app.get('/CreateTableUsers',CreateDB.CreateTableUsers);
 app.get('/InsertDataUsers', CreateDB.InsertDataUsers);
 app.get('/ShowTableUsers', CreateDB.ShowTableUsers);
-//app.get('/DropTableUsers', CreateDB.DropTableUsers);
 //products
 app.get('/CreateTableProducts',CreateDB.CreateTableProducts);
 app.get('/InsertDataProducts', CreateDB.InsertDataProducts);
@@ -83,8 +82,8 @@ app.get('/createaccount', (req, res)=>{
 
 app.get('/seller', (req, res)=>{
     let userNameCookie = req.cookies.sellerName;
-    //let userEmailCookie = req.cookies.sellerEmail;
-    res.render('seller', {v4:userNameCookie});
+    let userResults = req.cookies.results;
+    res.render('seller', {v4:userNameCookie, v6:userResults});
 });
 
 app.get('/createproduct', (req, res)=>{
