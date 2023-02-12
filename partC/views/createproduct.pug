@@ -8,15 +8,15 @@ block content
                 form(action="/insertNewProduct", method="post", id="block",class="my-form")
                     div.left
                         div.form
-                            input(type="image", name="image", id="Image", placeholder="הוסף תמונה")
+                            input(type="image", name="image", id="Image")
                         br
                         div.form
-                            label(for="price") :*מחיר
+                            label(for="price") מחיר*:
                             input(type="number", min="0", max="10000", name="price", id="Price",required)
                             label(for="price") ש"ח
                         br
                         div.form
-                            input(type="email" name="email" id="email",required)
+                            span #{v8} 
                             label(for="email") :*אימייל
                         br
                         div.form
@@ -31,21 +31,21 @@ block content
                             label(for="productName") :*שם 
                         br
                         div.form
-                            label(for="productType") סוג:
-                            input(type="radio", id="product", name="productType", value="product")
+                            label(for="productType") סוג*:
+                            input(type="radio", id="product", name="productType", value="מוצר",required)
                             label(for="product") מוצר
-                            input(type="radio", id="service", name="productType", value="service")
+                            input(type="radio", id="service", name="productType", value="שירות",required)
                             label(for="service") שירות
                         br
                         div.form
                             select(type="text", name="category", id="Category",required)
                                 option(value="", disabled selected) בחר תת קטגוריה
-                                option(value="clothing") ביגוד
-                                option(value="Decor") עיצוב הבית
-                                option(value="moving") הובלות
-                                option(value="plumbing") אינסטלציה
-                                option(value="fix") תיקונים 
-                                option(value="other") אחר
+                                option(value="ביגוד") ביגוד
+                                option(value="עיצוב הבית") עיצוב הבית
+                                option(value="הובלות") הובלות
+                                option(value="אינסטלציה") אינסטלציה
+                                option(value="תיקונים") תיקונים 
+                                option(value="אחר") אחר
                             label(for="category") :*תת קטגוריה 
                         br
                         div.form

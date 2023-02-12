@@ -83,13 +83,15 @@ app.get('/createaccount', (req, res)=>{
 });
 
 app.get('/seller', (req, res)=>{
+    let userEmailCookie = req.cookies.sellerEmail;
     let userNameCookie = req.cookies.sellerName;
     let userResults = req.cookies.results;
     res.render('seller', {v4:userNameCookie, v5:userResults});
 });
 
 app.get('/createproduct', (req, res)=>{
-    res.render('createproduct');
+    let userEmailCookie = req.cookies.sellerEmail;
+    res.render('createproduct', {v8:userEmailCookie});
 });
 
 app.get('/editproduct', (req, res)=>{

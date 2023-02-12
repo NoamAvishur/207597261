@@ -34,6 +34,7 @@ const insertNewSignIN = (req,res)=>{
                     return;
                 }
                 res.cookie("sellerName", req.body.firstName);
+                res.cookie("sellerEmail", req.body.email);
                 res.cookie("results", "");
                 res.redirect('/seller');
                 return;
@@ -83,10 +84,9 @@ const findUser = (req,res)=>{
             return;
         }
         res.cookie("sellerName", mysqlres[0].firstName);
-        res.cookie("sellerEmail", mysqlres[0].email);
-        const userEmail=mysqlres[0].email;
+        res.cookie("sellerEmail", email);
         const Q5="SELECT * FROM products WHERE email=?"
-        sql.query(Q5, userEmail, (err, results) =>{
+        sql.query(Q5, email, (err, results) =>{
             if (err) {
                 console.log("error: error: ", err);
                 res.status(400).send({message:"could not search products"});
@@ -131,7 +131,7 @@ const insertNewProduct = (req,res)=>{
                 "description": req.body.description,
                 "image": req.body.image,
                 "price": req.body.price,
-                "email": req.body.email,
+                "email": req.cookies.sellerEmail,
                 "address":req.body.address
             }
             const Q6 = 'INSERT INTO products SET ?';
