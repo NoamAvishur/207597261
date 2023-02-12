@@ -34,8 +34,8 @@ const insertNewSignIN = (req,res)=>{
                     return;
                 }
                 res.cookie("sellerName", req.body.firstName);
-                res.cookie("sellerEmail", req.body.email);
-                res.redirect('/seller', {v5:"אין מוצרים או שירותים"});
+                res.cookie("results", "");
+                res.redirect('/seller');
                 return;
             })
         })
@@ -122,6 +122,7 @@ const insertNewProduct = (req,res)=>{
             "email": req.body.email,
             "address":req.body.address
     }
+    const userEmail=req.body.email;
     // run qury
     const Q6 = 'INSERT INTO products SET ?';
     sql.query(Q6, NewProduct, (err, mysqlres) =>{
@@ -130,9 +131,23 @@ const insertNewProduct = (req,res)=>{
             res.status(400).send({message:"couild create product"});
             return;
         }
-        console.log("created Product: ", {id: mysqlres.insertid});
-        res.send({message: "the Product created successfuly"});
-        return;
+        const Q7="SELECT * FROM products WHERE email=?"
+        sql.query(Q7, userEmail, (err, results) =>{
+            if (err) {
+                console.log("error: error: ", err);
+                res.status(400).send({message:"could not search products"});
+                return;
+            }
+            if (results.length == 0){
+                console.log("error: error: ", err);
+                res.redirect('seller',{v5: "אין מוצרים או שירותים"});
+                return;
+            }
+            res.cookie("results", results);
+            res.redirect("/seller");
+            return;
+
+        });
     })
 };
 

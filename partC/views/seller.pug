@@ -5,6 +5,7 @@ block content
         h1#sellerHeadLine  ! #{v4} שלום
         br
         h2#sellerHeadLine המוצרים / השירותים שלך
+        br
         p #{v5}
         table#classes
                 tr 
@@ -27,4 +28,9 @@ block content
                         td=n.category
                         td=n.productType
                         td=n.productName
-                        td=n.image
+                        td
+                            img#logo(src=n.image)
+        br
+        div#createNewProduct
+            a(href="http://localhost:3000/createproduct")  צור מוצר או שירות חדש 
+            img.backPic(src="media/plus.png")

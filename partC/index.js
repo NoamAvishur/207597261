@@ -36,9 +36,9 @@ app.post('/insertNewSignIN', CRUD.insertNewSignIN);
 app.get('/showAllUsers', CRUD.showAllUsers);
 app.post('/findUser', CRUD.findUser);
 //products
-app.get('/insertNewProduct', CRUD.insertNewProduct);
+app.post('/insertNewProduct', CRUD.insertNewProduct);
 app.get('/showAllProducts', CRUD.showAllProducts);
-app.get('/findProduct', CRUD.findProduct);
+app.post('/findProduct', CRUD.findProduct);
 
 //routes
 app.get('/', (req, res)=>{
