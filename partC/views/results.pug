@@ -32,4 +32,5 @@ block content
                         td=n.productName
                         td 
                             img#logo(src=n.image)
-                        td=n.serial_num
+                        td
+                            a(href='http://localhost:3000/findProductBySerialUser/' + n.serial_num) #{n.serial_num}
