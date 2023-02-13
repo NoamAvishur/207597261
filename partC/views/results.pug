@@ -36,7 +36,7 @@ block content
     div.sidebar
       h4 סינון לפי
       h5 סוג
-      form(action="/findProductByFilter", method="get") 
+      form(action="/findProductByFilter", method="get", class="filter") 
         ul
           li.item
             label(for="productType") מוצר 
@@ -65,8 +65,9 @@ block content
           label(for="category")  אחר 
           input(type="checkbox", name="category", value="אחר")
       h5 מחיר
-      label(for="price") עד 
-      input(type="number", min="0", max="10000", name="price")
-      label(for="price")  ש"ח 
-      br
-      input(type="submit", class="btn", value="סנן")
+          br
+          label(for="price") עד 
+          input(type="number", min="0", max="10000", name="price")
+          label(for="price")  ש"ח 
+          br
+          input(type="submit", class="btn", value="סנן")

@@ -344,15 +344,24 @@ const findProductBySerialUser = (req,res)=>{
     })
 }
 const findProductByFilter = (req,res)=>{
-    // validate body exists
-    if (!req.body) {
-        res.status(400).send({message: "please fill the search"});
-        return;    }
-    // pull data from body
-    const userSearch = req.cookie.search;
     // run query
-    const Q14 = "SELECT * FROM products where productName like ?";
-    sql.query(Q14, ['%' + userSearch + '%'], (err, mysqlres)=>{
+    const filters = JSON.parse(req.cookies.filters);
+    const userSearch = req.cookie.search;
+    const Q14 = "SELECT * FROM products where productName like ? AND 1=1";
+    let params = [];
+    if (filters.productType) {
+        query += " AND productType=?";
+        params.push(filters.productType);
+    }
+    if (filters.category) {
+        query += " AND category=?";
+        params.push(filters.category);
+    }
+    if (filters.price) {
+        query += " AND price<=?";
+        params.push(filters.price);
+    }
+    sql.query(Q14, [['%' + userSearch + '%'],params], (err, mysqlres)=>{
         if (err) {
             console.log("error: error: ", err);
             res.status(400).send({message:"could not search product"});

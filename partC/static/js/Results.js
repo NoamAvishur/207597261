@@ -1,4 +1,5 @@
 const myForm = document.querySelector('.my-form')
+const filter = document.querySelector('.filter')
 const resultInput=document.querySelector(`#resultLine`)
 //const msg = document.querySelector('.msg')
 
@@ -32,3 +33,15 @@ const onSubmit = (e) => {//check input
 }
 
 myForm.addEventListener('submit', onSubmit)
+
+const onSubmitFilters = (e) => {
+    let filters={
+        productType: `${productType.value}`,
+        category: `${category.value}`,
+        price: `${price.value}`
+    }
+        let fitersJson=JSON.stringify(filters)
+        document.cookie= `filters=` +  fitersJson;
+    }
+
+filter.addEventListener('submit', onSubmitFilters)
