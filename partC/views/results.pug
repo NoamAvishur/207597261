@@ -1,36 +1,72 @@
 extends layout
+
 block content
-    script(src='js/Results.js', defer) 
-    div.content
-        div.results
-            tr 
-            form(action="/findProduct", method="post", class="my-form", id="block") 
-                    input(type="submit", class="btn" ,value="חפש" ,name="searchBtn" ,id="searchBtn") 
-                    div.form
-                        input(type="search", name="search", id="resultLine", placeholder=v7, required)             
-            h1 תוצאות החיפוש    
-            tr 
-            table#products
-                tr 
-                    th כתובת
-                    th אימייל
-                    th מחיר
-                    th תיאור
-                    th קטגוריה
-                    th סוג
-                    th שם 
-                    th תמונה
-                    th מספר
-                each n in v6  
-                    tr(href='http://localhost:3000/findProductBySerialUser/' + n.serial_num)
-                        td=n.address
-                        td=n.email
-                        td=n.price
-                        td=n.description
-                        td=n.category
-                        td=n.productType
-                        td=n.productName
-                        td 
-                            img#logo(src=n.image)
-                        td
-                            a(href='http://localhost:3000/findProductBySerialUser/' + n.serial_num) #{n.serial_num}
+  script(src='js/Results.js', defer) 
+  div.content 
+    form(action="/findProduct", method="post", class="my-form", id="block") 
+      input(type="submit", class="btn" ,value="חפש" ,name="searchBtn" ,id="searchBtn") 
+      div.form
+        input(type="search", name="search", id="resultLine", placeholder=v7, required)             
+    h1 תוצאות החיפוש     
+    div.results
+      table#products
+        tr 
+          th כתובת
+          th אימייל
+          th מחיר
+          th תיאור
+          th קטגוריה
+          th סוג
+          th שם 
+          th תמונה
+          th מספר
+        each n in v6  
+          tr
+            td=n.address
+            td=n.email
+            td=n.price
+            td=n.description
+            td=n.category
+            td=n.productType
+            td=n.productName
+            td 
+              img#logo(src=n.image)
+            td
+              a(href='http://localhost:3000/findProductBySerialUser/' + n.serial_num) #{n.serial_num}
+    div.sidebar
+      h4 סינון לפי
+      h5 סוג
+      form(action="/findProductByFilter", method="get") 
+        ul
+          li.item
+            label(for="productType") מוצר 
+            input(type="checkbox", name="productType", value="מוצר")
+          li.item 
+            label(for="productType")  שירות 
+            input(type="checkbox", name="productType", value="שירות")
+      h5 תת קטגוריה
+      ul
+        li.item 
+          label(for="category")  ביגוד 
+          input(type="checkbox", name="category", value="ביגוד")
+        li.item 
+          label(for="category")  עיצוב הבית 
+          input(type="checkbox", name="category", value="עיצוב הבית")
+        li.item 
+          label(for="category")  הובלות 
+          input(type="checkbox", name="category", value="הובלות")
+        li.item 
+          label(for="category")  אינסטלציה 
+          input(type="checkbox", name="category", value="אינסטלציה")
+        li.item 
+          label(for="category")  תיקונים 
+          input(type="checkbox", name="category", value="תיקונים")
+        li.item 
+          label(for="category")  אחר 
+          input(type="checkbox", name="category", value="אחר")
+      h5 מחיר
+      label(for="price") עד 
+      input(type="number", min="0", max="10000", name="price")
+      label(for="price")  ש"ח 
+      br
+      input(type="submit", class="btn", value="סנן")

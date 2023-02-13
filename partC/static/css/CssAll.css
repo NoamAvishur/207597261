@@ -290,8 +290,9 @@ span{
     margin-left: 20%;
 }
 #resultLine{
+    text-align: right;
     display: inline;
-    width: 35%;
+    width: 40%;
     border-radius: 10px;
     background-color: #DCC2E0;
     font-family: "Segoe UI Light";
@@ -299,20 +300,42 @@ span{
     border: none;
     padding: 10px;
 }
-.results{
-    position: relative;
+.results {
+    width: 80%;
+    float: left;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  
+  .sidebar {
+    margin-top: 5%;
+    margin-right: 2%;
+    font-family: "Segoe UI Light";
+    border-radius: 10px;
+    width: 15%;
+    float: right;
+    padding: 15px;
+    box-sizing: border-box;
     text-align: right;
+    background-color: #DCC2E0;
+  }
+/*.results{
+    width: 70%;
+    position: relative;
+    text-align: left;
+    display: inline;
     margin-right: 5%;
-}
+}*/
 #resultsList{
-    width: 85%;
+    width: 70%;
     float: left;
     padding: 15px;
     box-sizing: border-box;
     text-align: right;
     display: inline;
 }
-.sidebar{
+/*.sidebar{
     font-family: "Segoe UI Light";
     border-radius: 10px;
     width: 15%;
@@ -322,7 +345,7 @@ span{
     text-align: right;
     background-color: #DCC2E0;
     display: inline;
-}
+}*/
 .block{
     display: block;
     margin-top: 35%;
@@ -373,6 +396,7 @@ h1{
 #products {
     font-family: "Segoe UI light";
     border-collapse: collapse;
+    border-radius: 10px;
     width: 90%;
     margin-left: 5%;
     margin-top: 5%;

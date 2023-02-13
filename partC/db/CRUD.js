@@ -323,8 +323,8 @@ const findProductBySerialUser = (req,res)=>{
     // pull data from body
     const serial_num = req.params.serial;
     // run query
-    const Q9 = "SELECT * FROM products where serial_num=?";
-    sql.query(Q9, [serial_num], (err, mysqlres)=>{
+    const Q13 = "SELECT * FROM products where serial_num=?";
+    sql.query(Q13, [serial_num], (err, mysqlres)=>{
         if (err) {
             console.log("error: error: ", err);
             res.status(400).send({message:"could not search product"});
@@ -343,4 +343,25 @@ const findProductBySerialUser = (req,res)=>{
         return;
     })
 }
-module.exports = {insertNewSignIN, showAllUsers, findUser,insertNewProduct,editProduct,showAllProducts,findProduct, removeProduct,findProductBySerialUser, findProductBySerial};
+const findProductByFilter = (req,res)=>{
+    // validate body exists
+    if (!req.body) {
+        res.status(400).send({message: "please fill the search"});
+        return;    }
+    // pull data from body
+    const userSearch = req.cookie.search;
+    // run query
+    const Q14 = "SELECT * FROM products where productName like ?";
+    sql.query(Q14, ['%' + userSearch + '%'], (err, mysqlres)=>{
+        if (err) {
+            console.log("error: error: ", err);
+            res.status(400).send({message:"could not search product"});
+            return;
+        }
+        res.cookie("results", mysqlres);
+        res.cookie("search", userSearch);
+        res.redirect("/results");
+        return;
+    })
+}
+module.exports = {insertNewSignIN, showAllUsers, findUser,insertNewProduct,editProduct,showAllProducts,findProduct, removeProduct,findProductBySerialUser, findProductBySerial,findProductByFilter};
