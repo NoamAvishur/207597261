@@ -209,17 +209,45 @@ const findProduct = (req,res)=>{
         return;
     })
 }
+const findProductBySerial = (req,res)=>{
+    // validate body exists
+    if (!req.body) {
+        res.status(400).send({message: "please fill the search"});
+        return;    }
+    // pull data from body
+    const serial_num = req.params.serial;
+    // run query
+    const Q9 = "SELECT * FROM products where serial_num=?";
+    sql.query(Q9, [serial_num], (err, mysqlres)=>{
+        if (err) {
+            console.log("error: error: ", err);
+            res.status(400).send({message:"could not search product"});
+            return;
+        }
+        res.cookie("serial_num", serial_num);
+        res.cookie("productName", mysqlres[0].productName);
+        res.cookie("productType", mysqlres[0].productType);
+        res.cookie("category", mysqlres[0].category);
+        res.cookie("description", mysqlres[0].description);
+        res.cookie("image", mysqlres[0].image);
+        res.cookie("price", mysqlres[0].price);
+        res.cookie("sellerEmail", mysqlres[0].email);
+        res.cookie("address", mysqlres[0].address);
+        res.redirect("/editproduct");
+        return;
+    })
+}
 const removeProduct=(req,res)=>{
     const serial_num = JSON.parse(req.cookies.choosenProduct);
-    const Q9="DELETE FROM products WHERE  serial_num=?";
-    sql.query(Q9, [serial_num], (err) => {
+    const Q10="DELETE FROM products WHERE  serial_num=?";
+    sql.query(Q10, [serial_num], (err) => {
         if (err) {
             console.log("can't delete item", err);
             return;
         }
         const sellerEmail=req.cookies.sellerEmail;
-        const Q10="SELECT * FROM products WHERE email=?"
-        sql.query(Q10, [sellerEmail], (err, results) =>{
+        const Q11="SELECT * FROM products WHERE email=?"
+        sql.query(Q11, [sellerEmail], (err, results) =>{
                     if (err) {
                         console.log("error: error: ", err);
                         res.status(400).send({message:"could not search products"});
@@ -237,4 +265,55 @@ const removeProduct=(req,res)=>{
 
     })})
 }
-module.exports = {insertNewSignIN, showAllUsers, findUser,insertNewProduct,showAllProducts,findProduct, removeProduct};
+const editProduct = (req, res) => {
+    // Validate body exists
+    if (!req.body) {
+      res.status(400).send({ message: "Content cannot be empty" });
+      return;
+    }
+    const serial_num = req.cookies.serial_num;
+    // Validate serial number exists in the cookie
+    if (!serial_num) {
+      res.status(400).send({ message: "Serial number not found in the cookie" });
+      return;
+    }
+    const editProduct = {
+      productName: req.body.productName,
+      productType: req.body.productType,
+      category: req.body.category,
+      description: req.body.description,
+      image: req.body.image,
+      price: req.body.price,
+      address: req.body.address
+    };
+  
+    const Q12 = "UPDATE products SET ? WHERE serial_num = ?";
+    sql.query(Q12, [editProduct, serial_num], (err, mysqlRes) => {
+      if (err) {
+        console.log("Error: ", err);
+        res.status(400).send({ message: "Could not update product" });
+        return;
+      }
+      // Get updated products list for the seller
+      const sellerEmail = req.cookies.sellerEmail;
+      const query = "SELECT * FROM products WHERE email = ?";
+      sql.query(query, [sellerEmail], (err, results) => {
+        if (err) {
+          console.log("Error: ", err);
+          res.status(400).send({ message: "Could not search products" });
+          return;
+        }
+  
+        if (results.length === 0) {
+          console.log("Error: ", err);
+          res.cookie("results", "");
+          res.redirect("/seller");
+          return;
+        }
+        res.cookie("results", results);
+        res.redirect("/seller");
+        return;
+    })
+})};
+
+module.exports = {insertNewSignIN, showAllUsers, findUser,insertNewProduct,editProduct,showAllProducts,findProduct, removeProduct, findProductBySerial};

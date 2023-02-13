@@ -37,9 +37,11 @@ app.get('/showAllUsers', CRUD.showAllUsers);
 app.post('/findUser', CRUD.findUser);
 //products
 app.post('/insertNewProduct', CRUD.insertNewProduct);
+app.post('/editProduct',CRUD.editProduct);
 app.get('/showAllProducts', CRUD.showAllProducts);
 app.post('/findProduct', CRUD.findProduct);
 app.get('/removeProduct', CRUD.removeProduct);
+app.get('/findProductBySerial/:serial', CRUD.findProductBySerial);
 
 
 //routes
@@ -98,7 +100,16 @@ app.get('/createproduct', (req, res)=>{
 });
 
 app.get('/editproduct', (req, res)=>{
-    res.render('editproduct');
+    let serial_num = req.cookies.serial_num;
+    let productName = req.cookies.productName;
+    let productType = req.cookies.productType;
+    let category = req.cookies.category;
+    let description = req.cookies.description;
+    let image = req.cookies.image;
+    let address = req.cookies.address;
+    let price = req.cookies.price;
+    let userEmailCookie = req.cookies.sellerEmail;
+    res.render('editproduct', {v11:image,v12:price,v13:address, v14:productName, v15:productType, v16:category, v17:description, v18:userEmailCookie});
 });
 
 app.listen(port, () => {
