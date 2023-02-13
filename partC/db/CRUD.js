@@ -315,5 +315,32 @@ const editProduct = (req, res) => {
         return;
     })
 })};
-
-module.exports = {insertNewSignIN, showAllUsers, findUser,insertNewProduct,editProduct,showAllProducts,findProduct, removeProduct, findProductBySerial};
+const findProductBySerialUser = (req,res)=>{
+    // validate body exists
+    if (!req.body) {
+        res.status(400).send({message: "please fill the search"});
+        return;    }
+    // pull data from body
+    const serial_num = req.params.serial;
+    // run query
+    const Q9 = "SELECT * FROM products where serial_num=?";
+    sql.query(Q9, [serial_num], (err, mysqlres)=>{
+        if (err) {
+            console.log("error: error: ", err);
+            res.status(400).send({message:"could not search product"});
+            return;
+        }
+        res.cookie("serial_num", serial_num);
+        res.cookie("productName", mysqlres[0].productName);
+        res.cookie("productType", mysqlres[0].productType);
+        res.cookie("category", mysqlres[0].category);
+        res.cookie("description", mysqlres[0].description);
+        res.cookie("image", mysqlres[0].image);
+        res.cookie("price", mysqlres[0].price);
+        res.cookie("sellerEmail", mysqlres[0].email);
+        res.cookie("address", mysqlres[0].address);
+        res.redirect("/product");
+        return;
+    })
+}
+module.exports = {insertNewSignIN, showAllUsers, findUser,insertNewProduct,editProduct,showAllProducts,findProduct, removeProduct,findProductBySerialUser, findProductBySerial};

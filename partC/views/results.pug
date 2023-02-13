@@ -22,7 +22,7 @@ block content
                     th תמונה
                     th מספר
                 each n in v6  
-                    tr 
+                    tr(href='http://localhost:3000/findProductBySerialUser/' + n.serial_num)
                         td=n.address
                         td=n.email
                         td=n.price

@@ -42,7 +42,7 @@ app.get('/showAllProducts', CRUD.showAllProducts);
 app.post('/findProduct', CRUD.findProduct);
 app.get('/removeProduct', CRUD.removeProduct);
 app.get('/findProductBySerial/:serial', CRUD.findProductBySerial);
-
+app.get('/findProductBySerialUser/:serial', CRUD.findProductBySerialUser);
 
 //routes
 app.get('/', (req, res)=>{
@@ -64,7 +64,16 @@ app.get('/results', (req, res)=>{
 });
 
 app.get('/product', (req, res)=>{
-    res.render('product');
+    let serial_num = req.cookies.serial_num;
+    let productName = req.cookies.productName;
+    let productType = req.cookies.productType;
+    let category = req.cookies.category;
+    let description = req.cookies.description;
+    let image = req.cookies.image;
+    let address = req.cookies.address;
+    let price = req.cookies.price;
+    let userEmailCookie = req.cookies.sellerEmail;
+    res.render('product',{v20:image,v21:price,v23:address, v19:productName, v24:productType, v25:category, v26:description, v22:userEmailCookie});
 });
 
 app.get('/about', (req, res)=>{
