@@ -19,9 +19,9 @@ block content
                 each n in v5  
                     tr 
                         td
-                            a(href='#', onclick='deleteRow(event)') מחק
+                            a(href='#', onclick='deleteRow(event, \'' + n.serial_num + '\')') מחק
                         td 
-                            a(href='http://localhost:3000/editproduct') ערוך
+                            a(href='http://localhost:3000/editproduct/' + n.serial_num) ערוך
                         td=n.price
                         td=n.description
                         td=n.category

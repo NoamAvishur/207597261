@@ -209,4 +209,32 @@ const findProduct = (req,res)=>{
         return;
     })
 }
-module.exports = {insertNewSignIN, showAllUsers, findUser,insertNewProduct,showAllProducts,findProduct};
+const removeProduct=(req,res)=>{
+    const serial_num = JSON.parse(req.cookies.choosenProduct);
+    const Q9="DELETE FROM products WHERE  serial_num=?";
+    sql.query(Q9, [serial_num], (err) => {
+        if (err) {
+            console.log("can't delete item", err);
+            return;
+        }
+        const sellerEmail=req.cookies.sellerEmail;
+        const Q10="SELECT * FROM products WHERE email=?"
+        sql.query(Q10, [sellerEmail], (err, results) =>{
+                    if (err) {
+                        console.log("error: error: ", err);
+                        res.status(400).send({message:"could not search products"});
+                        return;
+                    }
+                    if (results.length == 0){
+                        console.log("error: error: ", err);
+                        res.cookie("results", "");
+                        res.redirect('/seller');
+                        return;
+                    }
+                    res.cookie("results", results);
+                    res.redirect("/seller");
+                    return;
+
+    })})
+}
+module.exports = {insertNewSignIN, showAllUsers, findUser,insertNewProduct,showAllProducts,findProduct, removeProduct};
