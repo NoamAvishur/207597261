@@ -1,0 +1,47 @@
+מודולים
+express path pug mysql2 body-parser cookie-parser csvtojson fs csv-parse csv-stringify
+
+ניתובים
+יצירת טבלת משתמשים והכנסת מידע
+http://localhost:3000/CreateTableUsers
+http://localhost:3000/InsertDataUsers
+http://localhost:3000/ShowTableUsers
+
+יצירת טבלת מוצרים והכנסת מידע
+http://localhost:3000/CreateTableProducts
+http://localhost:3000/InsertDataProducts
+http://localhost:3000/ShowTableProducts
+
+מחיקת בסיס הנתונים
+http://localhost:3000/DropTables
+
+סינטקס ליצירת הטבלאות
+יצירת טבלת משתמשים
+const CreateTableUsers = (req,res)=> {
+    var Q1 = "CREATE TABLE users (firstName VARCHAR(255),lastName VARCHAR(255), email VARCHAR(255),password VARCHAR(255))";
+    SQL.query(Q1,(err,mySQLres)=>{
+        if (err) {
+            console.log("error ", err);
+            res.status(400).send({message: "error in creating table"});
+            return;
+        }
+        console.log('created users table table');
+        res.send("users table created");
+        return;
+    })      
+}
+
+יצירת טבלת מוצרים
+const CreateTableProducts = (req,res)=> {
+    var Q5 = "CREATE TABLE products (serial_num SMALLINT, productName VARCHAR(255),productType VARCHAR(255), category VARCHAR(255),description VARCHAR(5000),image VARCHAR(255),price float, email VARCHAR(255), address VARCHAR(255))";
+    SQL.query(Q5,(err,mySQLres)=>{
+        if (err) {
+            console.log("error ", err);
+            res.status(400).send({message: "error in creating table"});
+            return;
+        }
+        console.log('created products table table');
+        res.send("products table created");
+        return;
+    })      
+}
