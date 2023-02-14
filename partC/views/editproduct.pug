@@ -32,9 +32,9 @@ block content
                         br
                         div.form
                             label(for="productType") סוג*:
-                            input(type="radio", id="product", name="productType",  checked=v15 == "מוצר")
+                            input(type="radio", id="product", name="productType",value="מוצר", checked=v15 === "מוצר")
                             label(for="product") מוצר
-                            input(type="radio", id="service", name="productType", checked=v15 == "שירות")
+                            input(type="radio", id="service", name="productType",value="שירות", checked=v15 !== "מוצר")
                             label(for="service") שירות
                         br
                         div.form
