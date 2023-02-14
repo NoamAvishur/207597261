@@ -1,6 +1,7 @@
 const myForm = document.querySelector('.my-form')
 const filter = document.querySelector('.filter')
 const resultInput=document.querySelector(`#resultLine`)
+
 //const msg = document.querySelector('.msg')
 
 var currentPage = window.location.pathname;//active nav bar
@@ -34,7 +35,7 @@ const onSubmit = (e) => {//check input
 
 myForm.addEventListener('submit', onSubmit)
 
-const onSubmitFilters = (e) => {
+/*const onSubmitFilters = (e) => {
     let filters={
         productType: `${productType.value}`,
         category: `${category.value}`,
@@ -44,4 +45,4 @@ const onSubmitFilters = (e) => {
         document.cookie= `filters=` +  fitersJson;
     }
 
-filter.addEventListener('submit', onSubmitFilters)
+filter.addEventListener('submit', onSubmitFilters)*/

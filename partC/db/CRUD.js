@@ -345,20 +345,24 @@ const findProductBySerialUser = (req,res)=>{
 }
 const findProductByFilter = (req,res)=>{
     // run query
-    const filters = JSON.parse(req.cookies.filters);
-    const userSearch = req.cookie.search;
-    const Q14 = "SELECT * FROM products where productName like ? AND 1=1";
+    const filters ={
+        productType: req.body.productType,
+        category: req.body.category,
+        price: req.body.price,
+    }
+    const userSearch = req.cookies.search;
+    let Q14 = "SELECT * FROM products where productName like ? AND 1=1";
     let params = [];
     if (filters.productType) {
-        query += " AND productType=?";
+        Q14 += " AND productType=?";
         params.push(filters.productType);
     }
     if (filters.category) {
-        query += " AND category=?";
+        Q14 += " AND category=?";
         params.push(filters.category);
     }
     if (filters.price) {
-        query += " AND price<=?";
+        Q14 += " AND price<=?";
         params.push(filters.price);
     }
     sql.query(Q14, [['%' + userSearch + '%'],params], (err, mysqlres)=>{

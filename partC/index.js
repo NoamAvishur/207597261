@@ -43,7 +43,7 @@ app.post('/findProduct', CRUD.findProduct);
 app.get('/removeProduct', CRUD.removeProduct);
 app.get('/findProductBySerial/:serial', CRUD.findProductBySerial);
 app.get('/findProductBySerialUser/:serial', CRUD.findProductBySerialUser);
-app.get('/findProductByFilter',CRUD.findProductByFilter);
+app.post('/findProductByFilter',CRUD.findProductByFilter);
 
 //routes
 app.get('/', (req, res)=>{
