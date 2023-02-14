@@ -320,13 +320,18 @@ span{
     text-align: right;
     background-color: #DCC2E0;
   }
-/*.results{
-    width: 70%;
-    position: relative;
-    text-align: left;
-    display: inline;
-    margin-right: 5%;
-}*/
+  @media screen and (max-width: 768px) {
+    .results {
+      width: 100%;
+      float: none;
+    }
+    .sidebar {
+      width: 100%;
+      float: none;
+      margin-top: 20px;
+    }
+  }
+
 #resultsList{
     width: 70%;
     float: left;

@@ -33,12 +33,10 @@ app.get('/DropTables', CreateDB.DropTables);
 
 //users
 app.post('/insertNewSignIN', CRUD.insertNewSignIN);
-app.get('/showAllUsers', CRUD.showAllUsers);
 app.post('/findUser', CRUD.findUser);
 //products
 app.post('/insertNewProduct', CRUD.insertNewProduct);
 app.post('/editProduct',CRUD.editProduct);
-app.get('/showAllProducts', CRUD.showAllProducts);
 app.post('/findProduct', CRUD.findProduct);
 app.get('/removeProduct', CRUD.removeProduct);
 app.get('/findProductBySerial/:serial', CRUD.findProductBySerial);
@@ -80,8 +78,6 @@ app.get('/product', (req, res)=>{
 app.get('/about', (req, res)=>{
     const csvPath = path.join(__dirname,"./content/about.csv");
     csv().fromFile(csvPath).then((jsonObj)=>{
-        console.log(jsonObj);
-        //res.send("jason object created");
         res.render('about', {
             var1: jsonObj
         })
@@ -122,7 +118,7 @@ app.get('/editproduct', (req, res)=>{
     res.render('editproduct', {v11:image,v12:price,v13:address, v14:productName, v15:productType, v16:category, v17:description, v18:userEmailCookie});
 });
 
-app.listen(port, () => {
+app.listen(port, () => {// listening on post 3000
     console.log("Server is running on port ", port
     );
 });

@@ -18,7 +18,7 @@ const CreateTableUsers = (req,res)=> {
 
 const InsertDataUsers = (req,res)=>{
     var Q2 = "INSERT INTO users SET ?";
-    const csvFilePath= path.join(__dirname, "users.csv");
+    const csvFilePath= path.join(__dirname, "csv/users.csv");
     csv()
     .fromFile(csvFilePath)
     .then((jsonObj)=>{
@@ -39,7 +39,7 @@ const InsertDataUsers = (req,res)=>{
     });
     });
     
-    res.send("data inserted");
+    res.send("data inserted to users");
 
 };
 const ShowTableUsers = (req,res)=>{
@@ -50,7 +50,7 @@ const ShowTableUsers = (req,res)=>{
             res.send("error in showing table ");
             return;
         }
-        console.log("showing table");
+        console.log("showing table users");
         res.send(mySQLres);
         return;
     })};
@@ -63,7 +63,7 @@ const DropTableUsers = (req, res)=>{
             res.status(400).send({message: "error om dropping table" + err});
             return;
         }
-        console.log("table drpped");
+        console.log("table dropped");
         return;
     })
 }
@@ -84,7 +84,7 @@ const CreateTableProducts = (req,res)=> {
 
 const InsertDataProducts = (req,res)=>{
     var Q6 = "INSERT INTO products SET ?";
-    const csvFilePath= path.join(__dirname, "products.csv");
+    const csvFilePath= path.join(__dirname, "csv/products.csv");
     csv()
     .fromFile(csvFilePath)
     .then((jsonObj)=>{
@@ -109,7 +109,7 @@ const InsertDataProducts = (req,res)=>{
         });
     });
     });
-    res.send("data inserted");
+    res.send("data inserted to products");
 };
 
 const ShowTableProducts = (req,res)=>{
@@ -120,7 +120,7 @@ const ShowTableProducts = (req,res)=>{
             res.send("error in showing table ");
             return;
         }
-        console.log("showing table");
+        console.log("showing table products");
         res.send(mySQLres);
         return;
     })};
@@ -133,7 +133,7 @@ const DropTableProducts = (req, res)=>{
             res.status(400).send({message: "error om dropping table" + err});
             return;
         }
-        console.log("table drpped");
+        console.log("table dropped");
         return;
     })
 }

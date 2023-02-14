@@ -1,0 +1,9 @@
+﻿serial_num,productName,productType,category,description,image,price,email,address
+1,עציץ בטון,מוצר,עיצוב הבית,עציץ בטון בעבודת יד. מגיע עם סוקולנט,media/productPic.JPG,30,noamavi@post.bgu.ac.il,בית הסטודנט 
+2,מגש בטון,מוצר,עיצוב הבית,"מגש בטון עגול גדול בגוון אפור. קוטר 30 ס""מ ",media/productPic2.JPG,40,noamavi@post.bgu.ac.il,בית הסטודנט 
+3,סט צלחות ,מוצר,עיצוב הבית,סט אוכל 8 חלקים מקרמיקה בגוון אפור,media/productPic3.JPG,120,noamavi@post.bgu.ac.il,בית הסטודנט 
+4,שלט בטון,מוצר,עיצוב הבית,שלט בטון לבית בגוון טבעי,media/productPic4.JPG,200,noamavi@post.bgu.ac.il,בית הסטודנט 
+5,שעון בטון,מוצר,עיצוב הבית,"שעון בטון לבית בגוון אפור, גודל בינוני קוטר 30 ס""מ",media/productPic5.JPG,70,noamavi@post.bgu.ac.il,בית הסטודנט 
+6,הובלה,שירות,הובלות,שירותי הובלה בתוך באר שבע ,,500,yoavgur@post.bgu.ac.il,שכונת רמות
+7,איסטלציה ,שירות,אינסטלציה,שירותי אינסטלציה בתוך באר שבע ,,300,yoavgur@post.bgu.ac.il,שכונת רמות
+8,תיקונים,שירות,תיקונים,"תיקונים כלליים לבית, בתוך באר שבע ",,250,yoavgur@post.bgu.ac.il,שכונת רמות
